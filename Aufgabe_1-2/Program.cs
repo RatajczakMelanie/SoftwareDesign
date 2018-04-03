@@ -24,8 +24,8 @@ namespace Aufgabe_1_2
             string vers;
             Random rnd = new Random();
             int cntSubj;
-            int cntVerb = rnd.Next(subjects.Length);
-            int cntObj = rnd.Next(subjects.Length);
+            int cntVerb;
+            int cntObj;
 
             do{
                 cntSubj = rnd.Next(subjects.Length);
