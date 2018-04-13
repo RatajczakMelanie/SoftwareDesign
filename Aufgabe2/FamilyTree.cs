@@ -18,9 +18,13 @@ namespace Aufgabe2
     {
         public static Person Find(Person person)
         {
+
+            
             Person ret = null;
-            if (person.LastName != "Battenberg")
+            if ((person.LastName != "Battenberg") && (person.LastName != "Cambridge")){
+                if((person.DateOfBirth.Year > 1800) && (person.DateOfBirth.Year < 1950))
                 return person;
+            }
 
             ret = Find(person.Mom);
             if (ret != null)
