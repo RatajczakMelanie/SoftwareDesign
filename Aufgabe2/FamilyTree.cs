@@ -18,12 +18,15 @@ namespace Aufgabe2
     {
         public static Person Find(Person person)
         {
+            const int age_max = 100;
+            const int age_min = 70;
 
+            int person_age = DateTime.Now.Year - person.DateOfBirth.Year;
             
             Person ret = null;
             if ((person.LastName != "Battenberg") && (person.LastName != "Cambridge")){
-                if((person.DateOfBirth.Year > 1800) && (person.DateOfBirth.Year < 1950))
-                return person;
+                if((person_age < age_max) && (person_age > age_min))
+                    return person;
             }
 
             ret = Find(person.Mom);
