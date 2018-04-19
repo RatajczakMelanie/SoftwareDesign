@@ -54,21 +54,21 @@ namespace Aufgabe3
         public static int ConvertToDecimalFromBase(int fromBase, int number){
             sum = 0;
             int[] digits = new int[1 + (int)Math.Log10(number)];
-                for(int i = digits.Length-1; i >= 0; i--){
-                    int digit;
-                    number = Math.DivRem(number, 10, out digit);
-                    digits[i]=digit;
-                }
-                List<int> outputs = new List<int>();
-                Array.Reverse(digits);
-                for(int i= 0; i <= digits.Length-1; i++){
-                    int multiplication = digits[i] * (int)Math.Pow(fromBase,i);
-                    outputs.Add(multiplication);
-                }
-                for(int i= 0; i <= outputs.Count-1; i++){
-                    sum = sum + outputs[i];
-                }
-                return sum;
+            for(int i = digits.Length-1; i >= 0; i--){
+                int digit;
+                number = Math.DivRem(number, 10, out digit);
+                digits[i]=digit;
+            }
+            List<int> outputs = new List<int>();
+            Array.Reverse(digits);
+            for(int i= 0; i <= digits.Length-1; i++){
+                int multiplication = digits[i] * (int)Math.Pow(fromBase,i);
+                outputs.Add(multiplication);
+            }
+            for(int i= 0; i <= outputs.Count-1; i++){
+                sum = sum + outputs[i];
+            }
+            return sum;
         }
 
         static int ConvertNumberToBaseFromBase(int number, int toBase, int fromBase){
