@@ -7,14 +7,19 @@ namespace Aufgabe3
     {
         static void Main(string[] args)
         { 
-           Console.WriteLine(ConvertDecimalToHexal(15));
+           /* Console.WriteLine(ConvertDecimalToHexal(15));
            Console.WriteLine(ConvertHexalToDecimal(23));
            Console.WriteLine(ConvertToBaseFromDecimal(6,231));
-           Console.WriteLine(ConvertToDecimalFromBase(6,1023));
-           Console.WriteLine(ConvertNumberToBaseFromBase(231, 6,10));
+           Console.WriteLine(ConvertToDecimalFromBase(6,1023)); */
+           ConvertNumberToBaseFromBase(231, 6,10);
+           Console.WriteLine("Die Zahl "+ input +" vom "+ f_base +"er System entspricht der Zahl " + systemNumber + " im "+ t_base +"er System." );
         }
         static int systemNumber;
         static int sum;
+
+        static int input;
+        static int f_base;
+        static int t_base;
         
         public static int ConvertDecimalToHexal(int dec){
             ConvertToBaseFromDecimal(6,dec);
@@ -68,6 +73,10 @@ namespace Aufgabe3
 
         static int ConvertNumberToBaseFromBase(int number, int toBase, int fromBase){
             systemNumber=0;
+            input = number;
+            t_base = toBase;
+            f_base = fromBase;
+
             if(toBase <= 10 && toBase >= 2 && fromBase <= 10 && fromBase >=2){
                 int dec=0;
                 dec = (ConvertToDecimalFromBase(fromBase,number));
