@@ -8,3 +8,13 @@ D:\Software_Design\SoftwareDesign\Aufgabe3\obj\Debug\netcoreapp2.0\Aufgabe3.Asse
 D:\Software_Design\SoftwareDesign\Aufgabe3\obj\Debug\netcoreapp2.0\Aufgabe3.AssemblyInfo.cs
 D:\Software_Design\SoftwareDesign\Aufgabe3\obj\Debug\netcoreapp2.0\Aufgabe3.dll
 D:\Software_Design\SoftwareDesign\Aufgabe3\obj\Debug\netcoreapp2.0\Aufgabe3.pdb
+D:\SoftwareDesign\SoftwareDesign\Aufgabe3\bin\Debug\netcoreapp2.0\Aufgabe3.deps.json
+D:\SoftwareDesign\SoftwareDesign\Aufgabe3\bin\Debug\netcoreapp2.0\Aufgabe3.runtimeconfig.json
+D:\SoftwareDesign\SoftwareDesign\Aufgabe3\bin\Debug\netcoreapp2.0\Aufgabe3.runtimeconfig.dev.json
+D:\SoftwareDesign\SoftwareDesign\Aufgabe3\bin\Debug\netcoreapp2.0\Aufgabe3.dll
+D:\SoftwareDesign\SoftwareDesign\Aufgabe3\bin\Debug\netcoreapp2.0\Aufgabe3.pdb
+D:\SoftwareDesign\SoftwareDesign\Aufgabe3\obj\Debug\netcoreapp2.0\Aufgabe3.csproj.CoreCompileInputs.cache
+D:\SoftwareDesign\SoftwareDesign\Aufgabe3\obj\Debug\netcoreapp2.0\Aufgabe3.AssemblyInfoInputs.cache
+D:\SoftwareDesign\SoftwareDesign\Aufgabe3\obj\Debug\netcoreapp2.0\Aufgabe3.AssemblyInfo.cs
+D:\SoftwareDesign\SoftwareDesign\Aufgabe3\obj\Debug\netcoreapp2.0\Aufgabe3.dll
+D:\SoftwareDesign\SoftwareDesign\Aufgabe3\obj\Debug\netcoreapp2.0\Aufgabe3.pdb

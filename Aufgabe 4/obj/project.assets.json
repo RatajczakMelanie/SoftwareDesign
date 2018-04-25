@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SoftwareDesign\\SoftwareDesign\\Aufgabe3\\Aufgabe3.csproj",
-      "projectName": "Aufgabe3",
-      "projectPath": "D:\\SoftwareDesign\\SoftwareDesign\\Aufgabe3\\Aufgabe3.csproj",
+      "projectUniqueName": "D:\\SoftwareDesign\\SoftwareDesign\\Aufgabe 4\\Aufgabe 4.csproj",
+      "projectName": "Aufgabe 4",
+      "projectPath": "D:\\SoftwareDesign\\SoftwareDesign\\Aufgabe 4\\Aufgabe 4.csproj",
       "packagesPath": "C:\\Users\\rataj\\.nuget\\packages\\",
-      "outputPath": "D:\\SoftwareDesign\\SoftwareDesign\\Aufgabe3\\obj\\",
+      "outputPath": "D:\\SoftwareDesign\\SoftwareDesign\\Aufgabe 4\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
