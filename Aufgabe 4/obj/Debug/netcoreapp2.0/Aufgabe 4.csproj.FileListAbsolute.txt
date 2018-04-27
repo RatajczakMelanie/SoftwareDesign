@@ -1,0 +1,10 @@
+D:\SoftwareDesign\SoftwareDesign\Aufgabe 4\bin\Debug\netcoreapp2.0\Aufgabe 4.deps.json
+D:\SoftwareDesign\SoftwareDesign\Aufgabe 4\bin\Debug\netcoreapp2.0\Aufgabe 4.runtimeconfig.json
+D:\SoftwareDesign\SoftwareDesign\Aufgabe 4\bin\Debug\netcoreapp2.0\Aufgabe 4.runtimeconfig.dev.json
+D:\SoftwareDesign\SoftwareDesign\Aufgabe 4\bin\Debug\netcoreapp2.0\Aufgabe 4.dll
+D:\SoftwareDesign\SoftwareDesign\Aufgabe 4\bin\Debug\netcoreapp2.0\Aufgabe 4.pdb
+D:\SoftwareDesign\SoftwareDesign\Aufgabe 4\obj\Debug\netcoreapp2.0\Aufgabe 4.csproj.CoreCompileInputs.cache
+D:\SoftwareDesign\SoftwareDesign\Aufgabe 4\obj\Debug\netcoreapp2.0\Aufgabe 4.AssemblyInfoInputs.cache
+D:\SoftwareDesign\SoftwareDesign\Aufgabe 4\obj\Debug\netcoreapp2.0\Aufgabe 4.AssemblyInfo.cs
+D:\SoftwareDesign\SoftwareDesign\Aufgabe 4\obj\Debug\netcoreapp2.0\Aufgabe 4.dll
+D:\SoftwareDesign\SoftwareDesign\Aufgabe 4\obj\Debug\netcoreapp2.0\Aufgabe 4.pdb
