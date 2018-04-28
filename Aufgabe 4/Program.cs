@@ -9,7 +9,7 @@ namespace Aufgabe_4
     {
         static void Main(string[] args)
         {
-             var tree = new TreeNode<String>();
+            var tree = new TreeNode<String>();
             var root = tree.CreateNode("root");
             var child1 = tree.CreateNode("child1");
             var child2 = tree.CreateNode("child1");
@@ -42,22 +42,28 @@ namespace Aufgabe_4
             }
             public TreeNode(T item, TreeNode<T> _parentNode)
             {
-                _item = item;
+                _item = item; 
                 _parentNode.Append_Child(this);
             }
-              public TreeNode<T> CreateNode(T item)
+              
+            public TreeNode<T> CreateNode(T item)
                 {
                     TreeNode<T> node = new TreeNode<T>();
                     node._item = item;
+                    
                     return node;
                 }
-            
              
 
             public void Append_Child(TreeNode<T> child)
-            {   if (_children.Count != 0)
-                {_children.Add(child);
-                child._parentNode = this;}else{
+            {   
+                _children.Add(child);
+                child._parentNode = this;
+                if (_children.Count != 0)
+                {
+                    _children.Add(child);
+                    child._parentNode = this;
+                }else{
                     Console.WriteLine("Nö");
                 }
                 
