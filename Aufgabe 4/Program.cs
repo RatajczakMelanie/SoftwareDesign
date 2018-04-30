@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Aufgabe_4
 {
@@ -24,8 +23,7 @@ namespace Aufgabe_4
             var grand21 = tree.CreateNode("grand21");
             child2.Append_Child(grand21);
              child1.Remove_Child(grand12);
-
-            Console.WriteLine(root.PrintTree()); 
+            root.PrintTree(""); 
         }
         
         public class TreeNode<T>{
@@ -35,6 +33,13 @@ namespace Aufgabe_4
             
             public TreeNode()
             {
+            }
+            public TreeNode<T> CreateNode(T item)
+            {
+                TreeNode<T> node = new TreeNode<T>();
+                node._item = item;
+                
+                return node;
             }
             public TreeNode(T item)
             {
@@ -46,36 +51,32 @@ namespace Aufgabe_4
                 _parentNode.Append_Child(this);
             }
               
-            public TreeNode<T> CreateNode(T item)
-                {
-                    TreeNode<T> node = new TreeNode<T>();
-                    node._item = item;
-                    
-                    return node;
-                }
+           
              
 
             public void Append_Child(TreeNode<T> child)
             {   
-                _children.Add(child);
+                if (_children == null)
+                _children = new List<TreeNode<T>>{child};
+                else
+                 _children.Add(child);
+                
+                
                 child._parentNode = this;
-                if (_children.Count != 0)
-                {
-                    _children.Add(child);
-                    child._parentNode = this;
-                }else{
-                    Console.WriteLine("Nö");
-                }
-                
-                
+                 
             }
 
             public void Remove_Child(TreeNode<T> child){
                     _children.Remove(child);
             }
 
-            public String PrintTree(){
-                return _item.ToString();
+            public void PrintTree(String Sternchen){
+                Console.WriteLine(Sternchen + _item.ToString());
+                if(_children != null){
+                    foreach(var child in _children){
+                        child.PrintTree(Sternchen + "*");
+                    }
+                }
             }
         }   
 
