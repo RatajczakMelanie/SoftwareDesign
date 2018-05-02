@@ -70,6 +70,11 @@ namespace Aufgabe_4
                     _children.Remove(child);
             }
 
+            public string Find_Node(TreeNode<T> item){
+                List<TreeNode<T>> _foundNodes =_children.FindAll(item);
+                return "Hallo";
+            }
+
             public void PrintTree(String Sternchen){
                 Console.WriteLine(Sternchen + _item.ToString());
                 if(_children != null){
