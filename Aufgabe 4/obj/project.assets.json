@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Software_Design\\SoftwareDesign\\Aufgabe 4\\Aufgabe 4.csproj",
+      "projectUniqueName": "D:\\Software_Design\\SoftwareDesign\\Aufgabe 4\\Aufgabe 4.csproj",
       "projectName": "Aufgabe 4",
-      "projectPath": "d:\\Software_Design\\SoftwareDesign\\Aufgabe 4\\Aufgabe 4.csproj",
+      "projectPath": "D:\\Software_Design\\SoftwareDesign\\Aufgabe 4\\Aufgabe 4.csproj",
       "packagesPath": "C:\\Users\\Melanie\\.nuget\\packages\\",
-      "outputPath": "d:\\Software_Design\\SoftwareDesign\\Aufgabe 4\\obj\\",
+      "outputPath": "D:\\Software_Design\\SoftwareDesign\\Aufgabe 4\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
