@@ -80,11 +80,13 @@ namespace Aufgabe_4
             }
 
             public List<TreeNode<T>> Find_Node(T search, List<TreeNode<T>> listToReturn){
-                _item = person;
-                if (_item.Equals(search)) {
+                
+                if (_item.Equals(search)) 
+                {
                     listToReturn.Add(this);
                 }
-                if(_children != null){
+                if(_children != null)
+                {
                     foreach(var child in _children)
                     {
                         child.Find_Node(search, listToReturn);
