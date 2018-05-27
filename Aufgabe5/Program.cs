@@ -6,12 +6,12 @@ namespace Aufgabe5
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
         }
 
         public class Person
         {
-            string name;
+            string first_name;
+            string last_name;
             int age;
         }
 
