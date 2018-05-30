@@ -1,0 +1,11 @@
+D:\Software_Design\SoftwareDesign\Aufgabe5\bin\Debug\netcoreapp2.0\Aufgabe5.deps.json
+D:\Software_Design\SoftwareDesign\Aufgabe5\bin\Debug\netcoreapp2.0\Aufgabe5.runtimeconfig.json
+D:\Software_Design\SoftwareDesign\Aufgabe5\bin\Debug\netcoreapp2.0\Aufgabe5.runtimeconfig.dev.json
+D:\Software_Design\SoftwareDesign\Aufgabe5\bin\Debug\netcoreapp2.0\Aufgabe5.dll
+D:\Software_Design\SoftwareDesign\Aufgabe5\bin\Debug\netcoreapp2.0\Aufgabe5.pdb
+D:\Software_Design\SoftwareDesign\Aufgabe5\obj\Debug\netcoreapp2.0\Aufgabe5.csprojResolveAssemblyReference.cache
+D:\Software_Design\SoftwareDesign\Aufgabe5\obj\Debug\netcoreapp2.0\Aufgabe5.csproj.CoreCompileInputs.cache
+D:\Software_Design\SoftwareDesign\Aufgabe5\obj\Debug\netcoreapp2.0\Aufgabe5.AssemblyInfoInputs.cache
+D:\Software_Design\SoftwareDesign\Aufgabe5\obj\Debug\netcoreapp2.0\Aufgabe5.AssemblyInfo.cs
+D:\Software_Design\SoftwareDesign\Aufgabe5\obj\Debug\netcoreapp2.0\Aufgabe5.dll
+D:\Software_Design\SoftwareDesign\Aufgabe5\obj\Debug\netcoreapp2.0\Aufgabe5.pdb
