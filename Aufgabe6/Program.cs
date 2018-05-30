@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Aufgabe6
 {
-    interface Spielfigur
+    interface Spielfigur // class Spielfigur = Basisklasse, Funktionsrumpf definieren - Subklassen ableiten, die Methoden nutzen
     {
         void Drohe();  
     }

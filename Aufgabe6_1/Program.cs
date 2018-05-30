@@ -15,12 +15,15 @@ namespace Aufgabe6_1
             this.Name = name;
             this.Age = age;
             this.Id = IDGenerator.GetInstance().GibMirNeId();
+            Program.personen.Add(this);
         }
 
         public override string ToString()
         {
             return "Name:" + Name + ", Age: " + Age + ", " + "Id: " + Id;
         }
+
+        
     }
 
     /*
@@ -56,18 +59,17 @@ namespace Aufgabe6_1
 
     class Program
     {
-
+        public static List<Person> personen = new List<Person>();
         static void Main(string[] args)
         {
             
 
-            List<Person> personen = new List<Person>();
+            
 
             // Eine Stelle, an der Personen angelegt werden
-            // {} deutet auf einen abgekürzten Konstruktor hin
-            personen.Add(new Person("Dieter", 44));
-            personen.Add(new Person("Hans", 54));
-            personen.Add(new Person("Bernd", 44));
+            new Person("Dieter", 44);
+            new Person("Hans", 54);
+            new Person("Bernd", 44);
 
             foreach (var person in personen)
                 Console.WriteLine(person);
