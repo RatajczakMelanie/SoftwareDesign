@@ -8,7 +8,14 @@ namespace Aufgabe6_1
     {
         public string Name;
         public int Age;
-        public int Id;
+        private int Id;
+
+        public Person(string name, int age)
+        {
+            this.Name = name;
+            this.Age = age;
+            this.Id = IDGenerator.GetInstance().GibMirNeId();
+        }
 
         public override string ToString()
         {
@@ -57,21 +64,10 @@ namespace Aufgabe6_1
             List<Person> personen = new List<Person>();
 
             // Eine Stelle, an der Personen angelegt werden
-            personen.Add(new Person{ Name="Dieter", Age=44,     Id = IDGenerator.GetInstance().GibMirNeId()});
-            personen.Add(new Person{ Name="Horst", Age=45,      Id = IDGenerator.GetInstance().GibMirNeId()});
-            personen.Add(new Person{ Name="Walter", Age=33,     Id = IDGenerator.GetInstance().GibMirNeId()});
-            personen.Add(new Person{ Name="Karl-Heinz", Age=22, Id = IDGenerator.GetInstance().GibMirNeId()});
-
-
-            // Eine ANDERE Stelle, an der Personen angelegt werden
-            personen.Add(new Person{ Name="Brunhilde", Age=56,    Id = IDGenerator.GetInstance().GibMirNeId()});
-            personen.Add(new Person{ Name="Maria", Age=75,        Id = IDGenerator.GetInstance().GibMirNeId()});
-            personen.Add(new Person{ Name="Kunigunde", Age=22,    Id = IDGenerator.GetInstance().GibMirNeId()});
-            personen.Add(new Person{ Name="Tusnelda", Age=12,     Id = IDGenerator.GetInstance().GibMirNeId()});
-
-
-
-
+            // {} deutet auf einen abgekürzten Konstruktor hin
+            personen.Add(new Person("Dieter", 44));
+            personen.Add(new Person("Hans", 54));
+            personen.Add(new Person("Bernd", 44));
 
             foreach (var person in personen)
                 Console.WriteLine(person);
