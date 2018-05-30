@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DesPatternDecorator
+namespace Aufgabe6
 {
     interface Spielfigur
     {
