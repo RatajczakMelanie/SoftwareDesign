@@ -14,7 +14,7 @@ namespace Aufgabe6_1
         {
             this.Name = name;
             this.Age = age;
-            this.Id = IDGenerator.GetInstance().GibMirNeId();
+            this.Id = IDGenerator.Instance.GibMirNeId();
             Program.personen.Add(this);
         }
 
@@ -43,12 +43,23 @@ namespace Aufgabe6_1
 
         private static IDGenerator _instance;
 
-        public static IDGenerator GetInstance()
+        /*public static IDGenerator GetInstance()
         {
             if (_instance == null)
                 _instance = new IDGenerator();
             return _instance;
+        }*/
+
+          public static IDGenerator Instance
+        {
+            get
+            {
+            if (_instance == null)
+                _instance = new IDGenerator();
+            return _instance;
+            }
         }
+
 
         private int letzteID;
         public int GibMirNeId()
@@ -73,8 +84,6 @@ namespace Aufgabe6_1
 
             foreach (var person in personen)
                 Console.WriteLine(person);
-
-            Console.WriteLine("Hello World!");
         }
     }
 }
