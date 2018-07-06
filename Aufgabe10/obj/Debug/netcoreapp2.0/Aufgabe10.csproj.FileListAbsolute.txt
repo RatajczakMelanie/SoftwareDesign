@@ -1,0 +1,11 @@
+D:\SoftwareDesign\SoftwareDesign\Aufgabe10\obj\Debug\netcoreapp2.0\Aufgabe10.csprojResolveAssemblyReference.cache
+D:\SoftwareDesign\SoftwareDesign\Aufgabe10\obj\Debug\netcoreapp2.0\Aufgabe10.csproj.CoreCompileInputs.cache
+D:\SoftwareDesign\SoftwareDesign\Aufgabe10\obj\Debug\netcoreapp2.0\Aufgabe10.AssemblyInfoInputs.cache
+D:\SoftwareDesign\SoftwareDesign\Aufgabe10\obj\Debug\netcoreapp2.0\Aufgabe10.AssemblyInfo.cs
+D:\SoftwareDesign\SoftwareDesign\Aufgabe10\bin\Debug\netcoreapp2.0\Aufgabe10.deps.json
+D:\SoftwareDesign\SoftwareDesign\Aufgabe10\bin\Debug\netcoreapp2.0\Aufgabe10.runtimeconfig.json
+D:\SoftwareDesign\SoftwareDesign\Aufgabe10\bin\Debug\netcoreapp2.0\Aufgabe10.runtimeconfig.dev.json
+D:\SoftwareDesign\SoftwareDesign\Aufgabe10\bin\Debug\netcoreapp2.0\Aufgabe10.dll
+D:\SoftwareDesign\SoftwareDesign\Aufgabe10\bin\Debug\netcoreapp2.0\Aufgabe10.pdb
+D:\SoftwareDesign\SoftwareDesign\Aufgabe10\obj\Debug\netcoreapp2.0\Aufgabe10.dll
+D:\SoftwareDesign\SoftwareDesign\Aufgabe10\obj\Debug\netcoreapp2.0\Aufgabe10.pdb
