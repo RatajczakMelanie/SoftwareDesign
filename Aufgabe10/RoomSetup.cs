@@ -15,7 +15,7 @@ namespace Aufgabe10
                 information = "sdfsdf",
                 characters = new List<Character>(),
                 roomInventory = new Dictionary<string, Item>{
-                    {"north", ItemSetup.gear[0]},
+                    {"north", ItemSetup.health[0]},
                 }
             };
             

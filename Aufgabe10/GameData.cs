@@ -3,7 +3,11 @@ using System.Collections.Generic;
 
 namespace Aufgabe10
 {
-    //class GameData{
+    
+    class GameData{
+
+        public static string user_input = Console.ReadLine().ToLower();
+    }
     public class Character
     {   
         public string name;
@@ -27,11 +31,14 @@ namespace Aufgabe10
 
     }
 
-    class Friend : Character
+    public class Friend : Character
     {
-              public void tell()
+        public static void tell()
         {
-            Console.Write("Weiche zurück!");
+            
+            Console.WriteLine("Hello i'm Prince Sidon, prince of the Zora Village. " + Environment.NewLine + "I'm so excited to meet you, but let my words be a warning. " + Environment.NewLine + "In the room in the north you'll find a cruel monster. " + Environment.NewLine + "Have you armed your sword yet? ");
+            
+            HelpMethods.tellCases();
         }        
     }
 
@@ -42,7 +49,7 @@ namespace Aufgabe10
     } 
 
 
-    //GameData Class}
+    
 
     public class Item{
         public string type;
@@ -60,8 +67,8 @@ namespace Aufgabe10
     public class Gear : Item{
         public float hitpoints;
         public bool armed;
-        public void arm(){
-
+        public void arm(Item item){
+            
         }
     }
     public class Normal : Item{
@@ -82,24 +89,5 @@ namespace Aufgabe10
         public Dictionary<string, Item> roomInventory;
         
     }
-/* 
-    public class Field : Room{
-
-    }
-
-    public class Kakariko : Room{
-
-    }
-
-    public class ZoraDomain : Room{
-
-    }
-
-    public class SheikahShrine : Room{
-
-    }
-    public class HyruleCastle : Room{
-
-    } */
-
+    
 }

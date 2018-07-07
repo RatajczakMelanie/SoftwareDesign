@@ -18,7 +18,8 @@ namespace Aufgabe10
 
             /* CharacterSetup.createEnemies();
             CharacterSetup.createFriends(); */
-            displayInventory();
+            //displayInventory();
+            Friend.tell();
 
             
         }
