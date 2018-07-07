@@ -19,22 +19,12 @@ namespace Aufgabe10
             /* CharacterSetup.createEnemies();
             CharacterSetup.createFriends(); */
             //displayInventory();
-            Friend.tell();
-
+            //Friend.tell();
+            //move.Move();
+            //HelpMethods.Help();
+            HelpMethods.CheckCases();
             
         }
 
-        public static void displayInventory(){
-            ItemSetup.createItems();
-            foreach(var item in ItemSetup.normal){
-                Console.WriteLine(item.type + "      " + item.name + "      " + item.placeholder + "    " + item.information );
-            } 
-            foreach(var item in ItemSetup.gear){
-                Console.WriteLine(item.type + "      " + item.name + "      " + item.armed + "      " + item.hitpoints+ "          " + item.information );
-            }
-            foreach(var item in ItemSetup.health){
-                Console.WriteLine(item.type + "      " + item.name + "      " + item.lifepoints + "      " + item.information );
-            }
-        }
     }
 }

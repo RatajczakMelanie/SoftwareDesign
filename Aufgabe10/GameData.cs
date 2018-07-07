@@ -6,49 +6,20 @@ namespace Aufgabe10
     
     class GameData{
 
-        public static string user_input = Console.ReadLine().ToLower();
-    }
-    public class Character
-    {   
-        public string name;
-        public float lifepoints;
-        public float hitpoints;
-        public string information;
-        public List<Item> inventory = new List<Item>();
-          
-    }
-
-    public class Avatar : Character{
-       
-        public virtual void goInDirection()
+        public static List<string> commands = new List<string>
         {
-            Console.WriteLine("Weiche zurück!");
-        }   
-        public void fight()
-        {
-            Console.Write("Weiche zurück!");
-        }  
+            "[north/n] [east/e] [south/s] [west/w]",
+            "[help/h] [look/l] [inventory/i]",
+            "[take] [drop/d <item>] [arm/d <item>] [use/d <item>]",
+            "[quit]"
+        };
 
+         public static void GameStart(){
+            HelpMethods.GameDescription();
+        }
+        
     }
-
-    public class Friend : Character
-    {
-        public static void tell()
-        {
-            
-            Console.WriteLine("Hello i'm Prince Sidon, prince of the Zora Village. " + Environment.NewLine + "I'm so excited to meet you, but let my words be a warning. " + Environment.NewLine + "In the room in the north you'll find a cruel monster. " + Environment.NewLine + "Have you armed your sword yet? ");
-            
-            HelpMethods.tellCases();
-        }        
-    }
-
-    public class Enemy : Character
-    {
-
-
-    } 
-
-
+   
     
 
     public class Item{
@@ -79,15 +50,6 @@ namespace Aufgabe10
     }
     
 
-    //public List<> rooms = new List<Room>();
-
-    public class Room{
-        public string name;
-        public string information;
-        public List<Character> characters;
-        public Dictionary<string, Room> neighbours;
-        public Dictionary<string, Item> roomInventory;
-        
-    }
+    
     
 }
