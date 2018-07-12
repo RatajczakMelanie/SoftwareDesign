@@ -5,9 +5,11 @@ namespace Aufgabe10
 {
     class Moving
     {
-        public static void Move(){
-        Room currentRoom = Room.createData();
-        string input = "";
+        public static Room currentRoom;
+        public static Room Move()
+        {
+            currentRoom = Room.createData();
+            string input = "";
 
             while (input != "q")
             {   
@@ -18,7 +20,13 @@ namespace Aufgabe10
                     case "n":
                     case "north":
                     if(currentRoom.north != null){
+                        //currentRoom.characters.Remove(CharacterSetup.link);
+                        foreach(var character in currentRoom.characters){
+                            Console.WriteLine(character.name);
+                        }
+                        
                         currentRoom = currentRoom.north;
+                        currentRoom.characters.Add(CharacterSetup.link);
                     }
                     else
                     {
@@ -78,10 +86,13 @@ namespace Aufgabe10
                     HelpMethods.Quit();
                     break;
 
+                    
 
                 }
+                
 
             }
+            return currentRoom;
         }
     }
 }

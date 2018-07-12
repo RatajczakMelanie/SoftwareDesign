@@ -149,7 +149,7 @@ namespace Aufgabe10
 
                 case "l":
                 case "look":
-                Use(words[1]);
+                Look();
                 break;
 
                 case "i":
@@ -179,6 +179,11 @@ namespace Aufgabe10
             foreach(var command in GameData.commands){
                 Console.WriteLine(command);
             }
+        }
+
+        public static void Look(){
+            //NUllreferenceexception
+            //Room.RoomDescription(Moving.currentRoom);
         }
 
         public static void Take(string itemname, Room room){

@@ -20,13 +20,13 @@ namespace Aufgabe10
             CharacterSetup.createFriends(); */
             //HelpMethods.displayWholeInventory();
             //Friend.tell();
-            //move.Move();
+            Moving.Move();
             //HelpMethods.Help();
             //HelpMethods.CheckCases();
             //HelpMethods.Take("potion");
             //HelpMethods.SplitInput();
             //Start.GameStart();
-            
+            //HelpMethods.Look();
         }
 
     }

@@ -4,8 +4,10 @@ using System.Collections.Generic;
 namespace Aufgabe10
 {
     
+    
         public class Room
         {
+            public List<CharacterSetup.Character> characters = new List<CharacterSetup.Character>();
             public List<Item> roomInventory = new List<Item>();
 
             public static List<Room> rooms = new List<Room>();
@@ -17,10 +19,9 @@ namespace Aufgabe10
             public Room east;
             public Room south;
             public Room west;
-            public Room(string _name, string _information, int _roomNumber){
+            public Room(string _name, string _information){
                 name = _name;
                 information = _information;
-                roomNumber = _roomNumber;
             }
             public static void RoomDescription(Room room){
                 Console.WriteLine(room.name);
@@ -29,15 +30,15 @@ namespace Aufgabe10
             }
 
               public static Room createData()
-        {   
+            {   
             
             Room Field = new Room
             (
                 "A Field",
                 "You are Standing on a wide Field. In the North you see little houses and huge mountains."
                 + Environment.NewLine 
-                + "What would you like to do?",
-                0
+                + "What would you like to do?"
+                
                 
             );
 
@@ -46,16 +47,16 @@ namespace Aufgabe10
                 "Kakariko",
                 "You've reached the beautiful town of Kakariko."
                 + Environment.NewLine 
-                + "What would you like to do?",
-                1
+                + "What would you like to do?"
+                
                 
             );
             
             Room ZoraDomain = new Room
             (
                 "The Zora village",
-                "You've entered the Zora village. People here like to swim, water is their element. You're waddeling into Water.",
-                2
+                "You've entered the Zora village. People here like to swim, water is their element. You're waddeling into Water."
+                
                 
             );
 
@@ -64,15 +65,15 @@ namespace Aufgabe10
                 "The SheikahShrine",
                 "You've entered The Sheikahshrine. You can sense that there might be some special item here."
                 + Environment.NewLine 
-                + "What would you like to do?",
-                3
+                + "What would you like to do?"
+                
             );
 
             Room HyruleCastle = new Room
             (
                 "The Castle of Hyrule",
-                "You've entered the great castle of Hyrule. Beware!",
-                4
+                "You've entered the great castle of Hyrule. Beware!"
+                
                 
             );
 
@@ -120,6 +121,7 @@ namespace Aufgabe10
             Field.north = Kakariko;
             Field.roomInventory.Add(sword);
             Field.roomInventory.Add(potion);
+            Field.characters.Add(CharacterSetup.link);
           
 
             //Kakariko neighbours
@@ -137,10 +139,12 @@ namespace Aufgabe10
             SheikahShrine.east = Kakariko;
             SheikahShrine.south = Field;
             SheikahShrine.roomInventory.Add(sheikahStone);
+            SheikahShrine.characters.Add(CharacterSetup.guardian);
 
             //HyruleCastle neighbours
             HyruleCastle.south = ZoraDomain;
             HyruleCastle.roomInventory.Add(statueOfZelda);
+            HyruleCastle.characters.Add(CharacterSetup.ganon);
             
             //List<Room>
             rooms.Add(Field);
@@ -148,6 +152,7 @@ namespace Aufgabe10
             rooms.Add(ZoraDomain);
             rooms.Add(SheikahShrine);
             rooms.Add(HyruleCastle);
+
 
 
             
