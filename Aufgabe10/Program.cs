@@ -7,7 +7,7 @@ namespace Aufgabe10
     {
         static void Main(string[] args)
         {
-
+            
              /* RoomSetup.createRooms();
             Console.WriteLine(RoomSetup.rooms.Count);
             foreach(var room in RoomSetup.rooms){
@@ -18,11 +18,14 @@ namespace Aufgabe10
 
             /* CharacterSetup.createEnemies();
             CharacterSetup.createFriends(); */
-            //displayInventory();
+            HelpMethods.displayWholeInventory();
             //Friend.tell();
             //move.Move();
             //HelpMethods.Help();
-            HelpMethods.CheckCases();
+            //HelpMethods.CheckCases();
+            //HelpMethods.Take("potion");
+            //HelpMethods.SplitInput();
+            //Start.GameStart();
             
         }
 

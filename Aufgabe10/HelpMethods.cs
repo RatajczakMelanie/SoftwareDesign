@@ -9,6 +9,8 @@ namespace Aufgabe10
         public static bool isFightCase = true;
         public static void tellCases(){
             string input = Console.ReadLine().ToLower();
+            for(;;)
+            {
             switch (input)
             {
                 case "yes":
@@ -27,19 +29,16 @@ namespace Aufgabe10
                     break;
             }
         }
+        }
 
         public static void displayWholeInventory(){
-            ItemSetup.createItems();
-            foreach(var item in ItemSetup.normal){
-                Console.WriteLine(item.type + "      " + item.name + "      " + item.placeholder + "    " + item.information );
+            
+            Console.WriteLine("Name - Type - Armed - Lifepoints - Hitpoints - Information ");
+            foreach(var item in CharacterSetup.link.inventory){
+                Console.WriteLine( "Inventar:"+Environment.NewLine +item.name + "      " +  item.type + "    " + item.armed + "    " + item.lifepoints + "    " + item.hitpoints + "    " + item.information );
             } 
-            foreach(var item in ItemSetup.gear){
-                Console.WriteLine(item.type + "      " + item.name + "      " + item.armed + "      " + item.hitpoints+ "          " + item.information );
-            }
-            foreach(var item in ItemSetup.health){
-                Console.WriteLine(item.type + "      " + item.name + "      " + item.lifepoints + "      " + item.information );
-            }
-         }
+            
+         } 
 
          public static void GameDescription()
         {
@@ -56,8 +55,9 @@ namespace Aufgabe10
 
         public static Array SplitInput()
         {
-            string _input = Console.ReadLine().ToLower();
-            words = _input.Split(' ');
+            string input = Console.ReadLine().ToLower();
+            words = input.Split(' ');
+            HelpMethods.CheckFightCases(words);
             return words;
         }
 
@@ -106,7 +106,7 @@ namespace Aufgabe10
 
                 case "i":
                 case "inventory":
-                displayWholeInventory();
+                //displayWholeInventory();
                 break;
 
                 case "f":
@@ -114,7 +114,7 @@ namespace Aufgabe10
                 Fight();
                 break;
 
-                // if(enemy im raum){}
+                //if(){}
                 default:
                 Console.WriteLine("Your input is invalid. Try again. Valid inputs are [arm/a], [inventory/i], [use/u], [quit/q], [fight/f]");
                 isFightCase = false;
@@ -132,6 +132,8 @@ namespace Aufgabe10
         public static void CheckNonFightCases(string [] _words)
         {
             words = _words;
+            Console.WriteLine("Nonfight cases");
+            Room setup = Room.createData();
 
             switch(_words[0])
             {
@@ -152,12 +154,12 @@ namespace Aufgabe10
 
                 case "i":
                 case "inventory":
-                displayWholeInventory();
+                //displayWholeInventory();
                 break;
 
                 case "t":
                 case "take":
-                Take();
+                Take(words[1], setup);
                 break;
 
                 case "m":
@@ -170,7 +172,6 @@ namespace Aufgabe10
                 CheckCases();
                 break;
             }
-            
         }
 
         public static void Help(){
@@ -180,8 +181,15 @@ namespace Aufgabe10
             }
         }
 
-        public static void Take(){
-
+        public static void Take(string itemname, Room room){
+            Console.WriteLine("TEst");
+            foreach(var item in room.roomInventory){
+                if(itemname == item.name){
+                    Console.WriteLine(itemname);
+                   CharacterSetup.link.inventory.Add(item);
+                   room.roomInventory.Remove(item);
+                }
+            } 
         }
         public static void Quit(){
             Console.ForegroundColor = ConsoleColor.Yellow;

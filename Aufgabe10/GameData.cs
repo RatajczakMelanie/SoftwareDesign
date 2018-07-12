@@ -14,15 +14,13 @@ namespace Aufgabe10
             "[quit]"
         };
 
-         public static void GameStart(){
-            HelpMethods.GameDescription();
-        }
+         
         
     }
    
     
 
-    public class Item{
+/*    public class Item{
         public string type;
         public string name;
         public string information;
@@ -47,7 +45,7 @@ namespace Aufgabe10
         public void specialText(){
 
         }
-    }
+    }*/
     
 
     

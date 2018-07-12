@@ -6,12 +6,12 @@ namespace Aufgabe10
     class Moving
     {
         public static void Move(){
-        RoomSetup.Room currentRoom = RoomSetup.createRooms();
+        Room currentRoom = Room.createData();
         string input = "";
 
             while (input != "q")
             {   
-                RoomSetup.Room.RoomDescription(currentRoom);
+                Room.RoomDescription(currentRoom);
                 input = Console.ReadLine().ToLower();
                 switch (input)
                 {
