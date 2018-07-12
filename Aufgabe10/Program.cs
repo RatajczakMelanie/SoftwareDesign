@@ -18,7 +18,7 @@ namespace Aufgabe10
 
             /* CharacterSetup.createEnemies();
             CharacterSetup.createFriends(); */
-            HelpMethods.displayWholeInventory();
+            //HelpMethods.displayWholeInventory();
             //Friend.tell();
             //move.Move();
             //HelpMethods.Help();
