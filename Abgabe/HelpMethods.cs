@@ -91,14 +91,13 @@ namespace Abgabe
                 }
             } 
         }
-       /*   public static Array SplitInput()
+          public static Array SplitInput()
         {
             Room.RoomDescription(currentRoom);
             string input = Console.ReadLine().ToLower();
             words = input.Split(' ');
-            CheckCases(words);
             return words;
-        } */
+        } 
 
         public static void HandleInput()
         {
@@ -108,13 +107,11 @@ namespace Abgabe
         public static void CheckCases()
         {
             
-            Room.RoomDescription(currentRoom);
-            string input = Console.ReadLine().ToLower();
-            words = input.Split(' ');
+            SplitInput();
             
             //string input = "";
             
-            while(words[0] != "q"){
+            for(;;){
                 
                 switch(words[0])
                 {
