@@ -14,7 +14,7 @@ namespace Abgabe
         {
             "[north/n] [east/e] [south/s] [west/w]",
             "[help/h] [look/l] [inventory/i]",
-            "[take] [drop/d <item>] [arm/d <item>] [use/d <item>]",
+            "[take/i <item>] [drop/d <item>] [arm/a <item>] [use/u <item>]",
             "[quit]"
         };
     
@@ -93,11 +93,26 @@ namespace Abgabe
             {
                 if(itemname == item.name)
                 {
-                    Console.WriteLine("You took: " + itemname);
-                    //CharacterSetup.link.inventory.Add(item);
-                    roomInventory_Copy.Add(item);
-                    CharacterSetup.link.inventory.Add(item);
-                   
+                    if(itemname == "zeldafigure"){
+                        if(CharacterSetup.ganon.lifepoints <= 0)
+                        {
+                            roomInventory_Copy.Add(item);
+                            CharacterSetup.link.inventory.Add(item);
+                            Game.GameWin();
+                        }else{
+                            Console.WriteLine("You took: " + itemname);
+                            //CharacterSetup.link.inventory.Add(item);
+                            roomInventory_Copy.Add(item);
+                            CharacterSetup.link.inventory.Add(item);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("You took: " + itemname);
+                        //CharacterSetup.link.inventory.Add(item);
+                        roomInventory_Copy.Add(item);
+                        CharacterSetup.link.inventory.Add(item);
+                   }
                 }
             } 
             foreach(var item in roomInventory_Copy){
@@ -122,6 +137,10 @@ namespace Abgabe
                     inventory_Copy.Add(item);
                     room.roomInventory.Add(item);
                    
+                }
+                else
+                {
+                    Console.WriteLine("There is no such item in your inventory.");
                 }
             } 
             foreach(var item in inventory_Copy){
@@ -160,8 +179,21 @@ namespace Abgabe
                     }
                     
                     if (enemy.lifepoints <= 0){
-                        Console.WriteLine("Nice, you've slain the beast!");
-                        characters_Copy.Add(enemy);
+                        if(enemy.name == "the calamity ganon"){
+                            Console.WriteLine("Nice, you've slain the beast!");
+                            characters_Copy.Add(enemy);
+                            foreach (var item in CharacterSetup.link.inventory){
+                                if(item.name == "zeldafigure"){
+                                    Game.GameWin();
+
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Nice, you've slain the beast!");
+                            characters_Copy.Add(enemy);
+                        }
                     }
                     if (CharacterSetup.link.lifepoints <=  0){
                         Console.WriteLine("You're dead. Try again.");
@@ -194,22 +226,26 @@ namespace Abgabe
                     
                     if(itemname == item.name)
                     {
-                        if(item.type == "gear")
+                        if(item.armed == false)
                         {
-                            Console.WriteLine("You armed: " + itemname);
-                            float hitpointsItem = item.hitpoints;
-                            float upgradedHitpoints = hitpoints + hitpointsItem;
-                            Console.WriteLine("Your hitpoints were upgraded from " + CharacterSetup.link.hitpoints + " to " + upgradedHitpoints);
-                            CharacterSetup.link.hitpoints = upgradedHitpoints;
-                            item.armed = true;
-                            inventory_Copy.Add(item);
-                            currentRoom.roomInventory.Remove(item);
-                        
-                        }
-                        else
-                        {
-                            Console.WriteLine("You can only arm items with type 'gear'");
+                            if(item.type == "gear")
+                            {
+                                Console.WriteLine("You armed: " + itemname);
+                                float hitpointsItem = item.hitpoints;
+                                float upgradedHitpoints = hitpoints + hitpointsItem;
+                                Console.WriteLine("Your hitpoints were upgraded from " + CharacterSetup.link.hitpoints + " to " + upgradedHitpoints);
+                                CharacterSetup.link.hitpoints = upgradedHitpoints;
+                                item.armed = true;
+                                currentRoom.roomInventory.Remove(item);
                             
+                            }
+                            else
+                            {
+                                Console.WriteLine("You can only arm items with type 'gear'");
+                                
+                            }
+                        }else{
+                            Console.WriteLine("You already have that equipped.");
                         }
                     }
                     else
@@ -217,10 +253,7 @@ namespace Abgabe
                         Console.WriteLine("There is no item inventory with that name, to see what's in your inventory press [inventory/i].");
                     }
                 } 
-                foreach(var item in inventory_Copy){
-                    CharacterSetup.link.inventory.Remove(item);
-                    
-                }
+                
             }
             else
             {

@@ -37,7 +37,7 @@ namespace Abgabe
 
         public static Enemy ganon = new Enemy
         (
-                    "The Calamity Ganon",
+                    "the calamity ganon",
                     "Enemy",
                     1F,
                     0.2F,

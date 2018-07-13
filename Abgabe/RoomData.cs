@@ -140,7 +140,7 @@ namespace Abgabe
         );
         Item statueOfZelda = new Item(
             
-            "Zeldafigure",
+            "zeldafigure",
             "normal",
             false,
             0,
@@ -151,7 +151,7 @@ namespace Abgabe
         //Field neighbours
         Field.north = Kakariko;
         Field.roomInventory.Add(sword);
-        Field.roomInventory.Add(potion);
+        //Field.roomInventory.Add(potion);
         Field.characters.Add(CharacterSetup.link);
         //Field.characters.Add(CharacterSetup.ganon);
         
@@ -163,8 +163,9 @@ namespace Abgabe
          //SheikahShrine neighbours
         EnemyCurrentRoom.SheikahShrine.east = Kakariko;
         EnemyCurrentRoom.SheikahShrine.south = Field;
-        EnemyCurrentRoom.SheikahShrine.roomInventory.Add(sheikahStone);
+        //EnemyCurrentRoom.SheikahShrine.roomInventory.Add(sheikahStone);
         EnemyCurrentRoom.SheikahShrine.characters.Add(CharacterSetup.guardian);
+       EnemyCurrentRoom.SheikahShrine.roomInventory.Add(potion);
         
 
         //ZoraDomain neighbours

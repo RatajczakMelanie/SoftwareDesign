@@ -664,23 +664,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rataj\\.nuget\\packages\\": {},
+    "C:\\Users\\Melanie\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\SoftwareDesign\\SoftwareDesign\\Aufgabe10\\Aufgabe10.csproj",
+      "projectUniqueName": "d:\\Software_Design\\SoftwareDesign\\Aufgabe10\\Aufgabe10.csproj",
       "projectName": "Aufgabe10",
-      "projectPath": "d:\\SoftwareDesign\\SoftwareDesign\\Aufgabe10\\Aufgabe10.csproj",
-      "packagesPath": "C:\\Users\\rataj\\.nuget\\packages\\",
-      "outputPath": "d:\\SoftwareDesign\\SoftwareDesign\\Aufgabe10\\obj\\",
+      "projectPath": "d:\\Software_Design\\SoftwareDesign\\Aufgabe10\\Aufgabe10.csproj",
+      "packagesPath": "C:\\Users\\Melanie\\.nuget\\packages\\",
+      "outputPath": "d:\\Software_Design\\SoftwareDesign\\Aufgabe10\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\rataj\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Melanie\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
