@@ -86,32 +86,35 @@ namespace Abgabe
                 if(itemname == item.name)
                 {
                     Console.WriteLine(itemname);
-                   CharacterSetup.link.inventory.Add(item);
-                   room.roomInventory.Remove(item);
+                    CharacterSetup.link.inventory.Add(item);
+                    room.roomInventory.Remove(item);
                 }
             } 
         }
-         public static Array SplitInput()
+       /*   public static Array SplitInput()
         {
             Room.RoomDescription(currentRoom);
             string input = Console.ReadLine().ToLower();
             words = input.Split(' ');
             CheckCases(words);
             return words;
-        }
+        } */
 
         public static void HandleInput()
         {
-            SplitInput();
+            //SplitInput();
             
         }
-        public static void CheckCases(string [] _words)
+        public static void CheckCases()
         {
-            words = _words;
+            
+            Room.RoomDescription(currentRoom);
+            string input = Console.ReadLine().ToLower();
+            words = input.Split(' ');
             
             //string input = "";
             
-            for(;;){
+            while(words[0] != "q"){
                 
                 switch(words[0])
                 {

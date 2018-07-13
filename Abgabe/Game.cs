@@ -8,7 +8,7 @@ namespace Abgabe
         public static void GameStart()
         {   
             HelpMethods.GameDescription();
-            HelpMethods.SplitInput();
+            HelpMethods.CheckCases();
         }
     }
 }
