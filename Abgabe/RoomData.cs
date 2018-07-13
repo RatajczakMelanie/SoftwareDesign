@@ -8,7 +8,7 @@ namespace Abgabe
         public class Room
         {
             public List<CharacterSetup.Character> characters = new List<CharacterSetup.Character>();
-            public List<Item> roomInventory = new List<Item>();
+            public  List<Item> roomInventory = new List<Item>();
 
             public static List<Room> rooms = new List<Room>();
             
@@ -26,6 +26,12 @@ namespace Abgabe
             public static void RoomDescription(Room room){
                 Console.WriteLine(room.name);
                 Console.WriteLine(room.information);
+                if (room.roomInventory.Count != 0){
+                    Console.WriteLine("You see:");
+                    foreach(var item in room.roomInventory){
+                        Console.WriteLine(item.name);
+                    }
+                }
                
             }
 
@@ -90,7 +96,7 @@ namespace Abgabe
 
             Item sword = new Item
             (
-                "Mastersword",
+                "mastersword",
                 "gear",
                 false,
                 0,
@@ -100,7 +106,7 @@ namespace Abgabe
 
             Item sheikahStone = new Item(
                 
-                "Sheikastone",
+                "sheikastone",
                 "normal",
                 false,
                 0,
@@ -109,7 +115,7 @@ namespace Abgabe
             );
             Item statueOfZelda = new Item(
                 
-                "A Statue of Princess Zelda",
+                "Zeldafigure",
                 "normal",
                 false,
                 0,
@@ -157,8 +163,8 @@ namespace Abgabe
            
         } 
             //public List<CharacterSetup.Character> characters;
-            
-        }        
+               
+    }        
       
     
 }

@@ -80,17 +80,51 @@ namespace Abgabe
         }
         public static void Take(string itemname, Room room)
         {
-            Console.WriteLine("TEst");
+            List<Item> roomInventory_Copy = new List<Item>();
+            
             foreach(var item in room.roomInventory)
             {
                 if(itemname == item.name)
                 {
-                    Console.WriteLine(itemname);
+                    Console.WriteLine("You took: " + itemname);
+                    //CharacterSetup.link.inventory.Add(item);
+                    roomInventory_Copy.Add(item);
                     CharacterSetup.link.inventory.Add(item);
-                    room.roomInventory.Remove(item);
+                   
                 }
             } 
+            foreach(var item in roomInventory_Copy){
+                room.roomInventory.Remove(item);
+                 
+            }
+            /* foreach(var item in room.roomInventory){
+                        Console.WriteLine(item.name);
+                    } */
         }
+
+         public static void Drop(string itemname, Room room)
+         {
+            List<Item> inventory_Copy = new List<Item>();
+            
+            foreach(var item in CharacterSetup.link.inventory)
+            {
+                if(itemname == item.name)
+                {
+                    Console.WriteLine("You dropped: " + itemname);
+                    //CharacterSetup.link.inventory.Add(item);
+                    inventory_Copy.Add(item);
+                    room.roomInventory.Add(item);
+                   
+                }
+            } 
+            foreach(var item in inventory_Copy){
+                CharacterSetup.link.inventory.Remove(item);
+                 
+            }
+            /* foreach(var item in CharacterSetup.link.inventory){
+                        Console.WriteLine(item.name);
+                    } */
+        } 
           public static Array SplitInput()
         {
             Room.RoomDescription(currentRoom);
@@ -98,6 +132,59 @@ namespace Abgabe
             words = input.Split(' ');
             return words;
         } 
+
+        public static void EnemyRoomChange(){
+            int number = 0;
+            
+            switch(number){
+
+                case 0:
+                
+                //ICH KANN NICHT AUF DIE RÄUME ZUGREIFEN
+                //Room.SheikahShrine.characters.Add(CharacterSetup.guardian);
+                break;
+            }
+            
+        }
+
+        public static Room RoomChange(string direction){
+            
+            switch(direction){
+                case "north":
+                currentRoom.characters.Remove(CharacterSetup.link);
+                currentRoom = currentRoom.north;
+                currentRoom.characters.Add(CharacterSetup.link);
+                break;
+
+                case "east":
+                currentRoom.characters.Remove(CharacterSetup.link);
+                currentRoom = currentRoom.east;
+                currentRoom.characters.Add(CharacterSetup.link);
+                break;
+
+                case "south":
+                currentRoom.characters.Remove(CharacterSetup.link);
+                currentRoom = currentRoom.south;
+                currentRoom.characters.Add(CharacterSetup.link);
+                break;
+
+                case "west":
+                currentRoom.characters.Remove(CharacterSetup.link);
+                currentRoom = currentRoom.west;
+                currentRoom.characters.Add(CharacterSetup.link);
+                break;
+
+
+                default:
+                Console.WriteLine("Error in method RoomChange");
+                break;
+            }
+            return currentRoom;
+
+            
+
+            
+        }
 
         public static void HandleInput()
         {
@@ -107,11 +194,12 @@ namespace Abgabe
         public static void CheckCases()
         {
             
-            SplitInput();
+            
             
             //string input = "";
             
             for(;;){
+                SplitInput();
                 
                 switch(words[0])
                 {
@@ -124,9 +212,7 @@ namespace Abgabe
                         {
                             Console.WriteLine(character.name);
                         } */
-                        currentRoom.characters.Remove(CharacterSetup.link);
-                        currentRoom = currentRoom.north;
-                        currentRoom.characters.Add(CharacterSetup.link);
+                        RoomChange("north");
                     }
                     else
                     {
@@ -139,8 +225,9 @@ namespace Abgabe
 
                     case "e":
                     case "east":
-                    if(currentRoom.east != null){
-                        currentRoom = currentRoom.east;
+                    if(currentRoom.east != null)
+                    {
+                       RoomChange("east");
                     }
                     else
                     {
@@ -152,8 +239,9 @@ namespace Abgabe
 
                     case "s":
                     case "south":
-                    if(currentRoom.south != null){
-                        currentRoom = currentRoom.south;
+                    if(currentRoom.south != null)
+                    {
+                        RoomChange("south");
                     }
                     else
                     {
@@ -165,8 +253,9 @@ namespace Abgabe
                     
                     case "w":
                     case "west":
-                    if(currentRoom.west != null){
-                        currentRoom = currentRoom.west;
+                    if(currentRoom.west != null)
+                    {
+                        RoomChange("west");
                     }
                     else
                     {
@@ -208,7 +297,7 @@ namespace Abgabe
 
                     case "d":
                     case "drop":
-                    //Arm(words[1]);
+                    Drop(words[1], currentRoom);
                     break;
 
                     case "l":

@@ -7,7 +7,8 @@ namespace Abgabe
     {
         static void Main(string[] args)
         {
-            Game.GameStart();
+            //Game.GameStart();
+            HelpMethods.EnemyRoomChange();
         }
     }
 }
