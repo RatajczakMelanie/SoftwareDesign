@@ -132,6 +132,7 @@ namespace Abgabe
         }
 
         public static void Fight(){
+            List<CharacterSetup.Character> characters_Copy = new List<CharacterSetup.Character>(); 
             
                 foreach(var enemy in currentRoom.characters)
                 {
@@ -146,11 +147,15 @@ namespace Abgabe
                     }
                     if (enemy.lifepoints <= 0){
                         Console.WriteLine("Nice, you've slain the beast!");
+                        characters_Copy.Add(enemy);
                     }
                     if (CharacterSetup.link.lifepoints <=  0){
                         Console.WriteLine("You're dead. Try again.");
                         Quit();
                     }
+                }
+                foreach(var enemy in characters_Copy){
+                    currentRoom.characters.Remove(enemy);
                 }
             
         }
@@ -168,8 +173,18 @@ namespace Abgabe
             
             switch(number)
             {
-
                 case 0:
+                if(EnemyCurrentRoom.SheikahShrine.east != null)
+                {
+                    EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
+                    currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.east;
+                    currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                }else{
+                    number ++;
+                }
+                break;
+
+                case 2:
                 if(EnemyCurrentRoom.SheikahShrine.north != null)
                 {
                     EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
@@ -191,16 +206,7 @@ namespace Abgabe
                 }
                 break;
 
-                case 2:
-                if(EnemyCurrentRoom.SheikahShrine.east != null)
-                {
-                    EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
-                    currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.east;
-                    currentEnemyRoom.characters.Add(CharacterSetup.guardian);
-                }else{
-                    number ++;
-                }
-                break;
+                
 
                 case 3:
                 if(EnemyCurrentRoom.SheikahShrine.west != null)
@@ -228,24 +234,28 @@ namespace Abgabe
                 currentRoom.characters.Remove(CharacterSetup.link);
                 currentRoom = currentRoom.north;
                 currentRoom.characters.Add(CharacterSetup.link);
+                EnemyRoomChange();
                 break;
 
                 case "east":
                 currentRoom.characters.Remove(CharacterSetup.link);
                 currentRoom = currentRoom.east;
                 currentRoom.characters.Add(CharacterSetup.link);
+                EnemyRoomChange();
                 break;
 
                 case "south":
                 currentRoom.characters.Remove(CharacterSetup.link);
                 currentRoom = currentRoom.south;
                 currentRoom.characters.Add(CharacterSetup.link);
+                EnemyRoomChange();
                 break;
 
                 case "west":
                 currentRoom.characters.Remove(CharacterSetup.link);
                 currentRoom = currentRoom.west;
                 currentRoom.characters.Add(CharacterSetup.link);
+                EnemyRoomChange();
                 break;
 
 
