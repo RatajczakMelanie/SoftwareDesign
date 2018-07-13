@@ -36,7 +36,7 @@ namespace Abgabe
             information = _information;
         }
         public static void RoomDescription(Room room){
-            Console.WriteLine(room.name);
+            Console.WriteLine(Environment.NewLine + room.name);
             Console.WriteLine(room.information);
             if (room.roomInventory.Count != 0){
                 Console.WriteLine("You see:");
@@ -153,7 +153,7 @@ namespace Abgabe
         Field.roomInventory.Add(sword);
         Field.roomInventory.Add(potion);
         Field.characters.Add(CharacterSetup.link);
-        Field.characters.Add(CharacterSetup.ganon);
+        //Field.characters.Add(CharacterSetup.ganon);
         
 
         //Kakariko neighbours

@@ -60,6 +60,7 @@ namespace Abgabe
         public static void GameDescription()
         {
             string gameDescription = 
+            Environment.NewLine +
             "Hello adventurerer, Welcome to a game full of mysteries and danger. You're name is Link right?" 
             + Environment.NewLine 
             + "Open all possible commands by pressing [help/h]."
@@ -144,12 +145,20 @@ namespace Abgabe
                     if (enemy.type == "Enemy")
                     {
                         enemy.lifepoints = enemy.lifepoints - CharacterSetup.link.hitpoints;
+                        if(enemy.lifepoints < 0){
+                            enemy.lifepoints = 0;
+                        }
                         Console.WriteLine("You cost " + enemy.name + " " + CharacterSetup.link.hitpoints + " Hitpoints. The beast fights back! ");
                         CharacterSetup.link.lifepoints = CharacterSetup.link.lifepoints - enemy.hitpoints;
                         Console.WriteLine("Your lifepoints: " + CharacterSetup.link.lifepoints  + " / Your enemy's lifepoints: " + enemy.lifepoints );
-                        Console.WriteLine("Attack again!");
+                        
+                        if (enemy.lifepoints > 0)
+                        {
+                            Console.WriteLine("Attack again!");
+                        }
                         
                     }
+                    
                     if (enemy.lifepoints <= 0){
                         Console.WriteLine("Nice, you've slain the beast!");
                         characters_Copy.Add(enemy);
@@ -161,6 +170,7 @@ namespace Abgabe
                 }
                 foreach(var enemy in characters_Copy){
                     currentRoom.characters.Remove(enemy);
+                    EnemyCurrentRoom.SheikahShrine.characters.Remove(enemy);
                 }
             
         }
@@ -169,38 +179,38 @@ namespace Abgabe
             Room.RoomDescription(currentRoom);
         }
 
-        public static void Arm(string item){
-
-            /* float hitpoints = CharacterSetup.link.hitpoints;
-            float hitpointsItem = item.hitpoints;
-            float upgradedHitpoints = hitpoints + hitpointsItem;
-            CharacterSetup.link.hitpoints = upgradedHitpoints;
-            */
-        } 
-
-        public static void Use(string itemname)
+        public static void Arm(string itemname)
         {
 
             List<Item> inventory_Copy = new List<Item>();
 
-            float lifepoints = CharacterSetup.link.lifepoints;
+            float hitpoints = CharacterSetup.link.hitpoints;
 
             if(CharacterSetup.link.inventory.Count != 0)
             {
 
                 foreach(var item in CharacterSetup.link.inventory)
                 {
+                    
                     if(itemname == item.name)
                     {
-                        Console.WriteLine("You used: " + itemname);
-                        float lifepointsItem = item.lifepoints;
-                        float upgradedLifepoints = lifepoints + lifepointsItem;
-                        Console.WriteLine("Your lifepoints were upgraded from " + CharacterSetup.link.lifepoints + " to " + upgradedLifepoints);
-                        CharacterSetup.link.lifepoints = upgradedLifepoints;
-                         
-                        inventory_Copy.Add(item);
-                        currentRoom.roomInventory.Remove(item);
-                    
+                        if(item.type == "gear")
+                        {
+                            Console.WriteLine("You armed: " + itemname);
+                            float hitpointsItem = item.hitpoints;
+                            float upgradedHitpoints = hitpoints + hitpointsItem;
+                            Console.WriteLine("Your hitpoints were upgraded from " + CharacterSetup.link.hitpoints + " to " + upgradedHitpoints);
+                            CharacterSetup.link.hitpoints = upgradedHitpoints;
+                            item.armed = true;
+                            inventory_Copy.Add(item);
+                            currentRoom.roomInventory.Remove(item);
+                        
+                        }
+                        else
+                        {
+                            Console.WriteLine("You can only arm items with type 'gear'");
+                            
+                        }
                     }
                     else
                     {
@@ -211,7 +221,56 @@ namespace Abgabe
                     CharacterSetup.link.inventory.Remove(item);
                     
                 }
-            }else{
+            }
+            else
+            {
+                Console.WriteLine("Either your inventory is empty or you didn't choose an item, try picking something up you can arm.");
+            }
+        }
+
+        public static void Use(string itemname)
+        {   
+
+            List<Item> inventory_Copy = new List<Item>();
+
+            float lifepoints = CharacterSetup.link.lifepoints;
+
+            if(CharacterSetup.link.inventory.Count != 0)
+            {
+
+                foreach(var item in CharacterSetup.link.inventory)
+                {
+                    
+                    if(itemname == item.name)
+                    {
+                        if(item.type == "health")
+                        {
+                            Console.WriteLine("You used: " + itemname);
+                            float lifepointsItem = item.lifepoints;
+                            float upgradedLifepoints = lifepoints + lifepointsItem;
+                            Console.WriteLine("Your lifepoints were upgraded from " + CharacterSetup.link.lifepoints + " to " + upgradedLifepoints);
+                            CharacterSetup.link.lifepoints = upgradedLifepoints;
+                            
+                            inventory_Copy.Add(item);
+                            currentRoom.roomInventory.Remove(item);
+                        
+                        }
+                        else
+                        {
+                             Console.WriteLine("You can only use items with type 'health'");
+                        }
+                    }else
+                    {
+                       Console.WriteLine("There is no item inventory with that name, to see what's in your inventory press [inventory/i].");
+                    }    
+                }     
+                        foreach(var item in inventory_Copy){
+                            CharacterSetup.link.inventory.Remove(item);
+                        }   
+                    
+                    
+            }else
+            {
                 Console.WriteLine("Either your inventory is empty or you didn't choose an item, try picking something up you can use.");
             }
             
@@ -344,11 +403,7 @@ namespace Abgabe
             
         }
 
-        public static void HandleInput()
-        {
-            //SplitInput();
-            
-        }
+       
         public static void CheckCases()
         {
             
