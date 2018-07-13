@@ -34,6 +34,11 @@ namespace Abgabe
                 case "n":
                     Console.WriteLine("That is not good. Go back to the field your journey started and look for a sword of your kind!");
                     break;
+                
+                case "q":
+                    case "quit":
+                    Quit();
+                    break;
 
                 default:
                     Console.WriteLine("I did not understand what you said. Please answer with [yes/y] or [no/n].");
@@ -160,6 +165,60 @@ namespace Abgabe
             
         }
         
+        public static void Look(){
+            Room.RoomDescription(currentRoom);
+        }
+
+        public static void Arm(string item){
+
+            /* float hitpoints = CharacterSetup.link.hitpoints;
+            float hitpointsItem = item.hitpoints;
+            float upgradedHitpoints = hitpoints + hitpointsItem;
+            CharacterSetup.link.hitpoints = upgradedHitpoints;
+            */
+        } 
+
+        public static void Use(string itemname)
+        {
+
+            List<Item> inventory_Copy = new List<Item>();
+
+            float lifepoints = CharacterSetup.link.lifepoints;
+
+            if(CharacterSetup.link.inventory.Count != 0)
+            {
+
+                foreach(var item in CharacterSetup.link.inventory)
+                {
+                    if(itemname == item.name)
+                    {
+                        Console.WriteLine("You used: " + itemname);
+                        float lifepointsItem = item.lifepoints;
+                        float upgradedLifepoints = lifepoints + lifepointsItem;
+                        Console.WriteLine("Your lifepoints were upgraded from " + CharacterSetup.link.lifepoints + " to " + upgradedLifepoints);
+                        CharacterSetup.link.lifepoints = upgradedLifepoints;
+                         
+                        inventory_Copy.Add(item);
+                        currentRoom.roomInventory.Remove(item);
+                    
+                    }
+                    else
+                    {
+                        Console.WriteLine("There is no item inventory with that name, to see what's in your inventory press [inventory/i].");
+                    }
+                } 
+                foreach(var item in inventory_Copy){
+                    CharacterSetup.link.inventory.Remove(item);
+                    
+                }
+            }else{
+                Console.WriteLine("Either your inventory is empty or you didn't choose an item, try picking something up you can use.");
+            }
+            
+            
+
+            
+        }
           public static Array SplitInput()
         {
             Room.RoomDescription(currentRoom);
@@ -167,18 +226,24 @@ namespace Abgabe
             words = input.Split(' ');
             return words;
         } 
+        public static Random randomNumber = new Random();
 
         public static void EnemyRoomChange(){
-            int number = 0;
+
+            
+            int number = randomNumber.Next(0,3);
             
             switch(number)
             {
                 case 0:
                 if(EnemyCurrentRoom.SheikahShrine.east != null)
-                {
-                    EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
-                    currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.east;
-                    currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                {   
+                    if(currentRoom.characters.Count <= 1)
+                    {
+                        EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
+                        currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.east;
+                        currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                    }
                 }else{
                     number ++;
                 }
@@ -187,9 +252,12 @@ namespace Abgabe
                 case 2:
                 if(EnemyCurrentRoom.SheikahShrine.north != null)
                 {
-                    EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
-                    currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.north;
-                    currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                    if(currentRoom.characters.Count <= 1)
+                    {
+                        EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
+                        currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.north;
+                        currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                    }
                 }else{
                     number ++;
                 }
@@ -198,9 +266,12 @@ namespace Abgabe
                 case 1:
                 if(EnemyCurrentRoom.SheikahShrine.south != null)
                 {
-                    EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
-                    currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.south;
-                    currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                    if(currentRoom.characters.Count <= 1)
+                    {
+                        EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
+                        currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.south;
+                        currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                    }
                 }else{
                     number ++;
                 }
@@ -211,9 +282,12 @@ namespace Abgabe
                 case 3:
                 if(EnemyCurrentRoom.SheikahShrine.west != null)
                 {
-                    EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
-                    currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.west;
-                    currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                    if(currentRoom.characters.Count <= 1)
+                    {
+                        EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
+                        currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.west;
+                        currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                    }
                 }else{
                     number ++;
                 }
@@ -356,12 +430,20 @@ namespace Abgabe
 
                     case "a":
                     case "arm":
-                    //Arm(words[1]);
+                    if(words.Length > 1){
+                        Arm(words[1]);
+                    }else{
+                        Console.WriteLine("You need to enter two words.");
+                    }
                     break;
 
                     case "u":
                     case "use":
-                    //Use(words[1]);
+                    if(words.Length > 1){
+                        Use(words[1]);
+                    }else{
+                        Console.WriteLine("You need to enter two words.");
+                    }
                     break;
 
                     case "h":
@@ -381,17 +463,26 @@ namespace Abgabe
 
                     case "d":
                     case "drop":
-                    Drop(words[1], currentRoom);
+                    if(words.Length > 1){
+                        Drop(words[1], currentRoom);
+                    }else{
+                        Console.WriteLine("You need to enter two words.");
+                    }
+                    
                     break;
 
                     case "l":
                     case "look":
-                    //Look();
+                    Look();
                     break;
 
                     case "t":
                     case "take":
-                    Take(words[1], currentRoom);
+                    if(words.Length > 1){
+                        Take(words[1], currentRoom);
+                    }else{
+                        Console.WriteLine("You need to enter two words.");
+                    }
                     break;
 
                     case "c":
