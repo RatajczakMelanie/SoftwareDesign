@@ -9,6 +9,7 @@ namespace Abgabe
         public class Character
         {
             public string name;
+            public string type;
             public float lifepoints;
             public float hitpoints;
             public string information;
@@ -19,6 +20,7 @@ namespace Abgabe
         public static Avatar link = new Avatar
         (
             "Link",
+            "Avatar",
             1F,
             0.3F,
             new List<Item>()
@@ -27,32 +29,36 @@ namespace Abgabe
         public static Enemy guardian = new Enemy
         (
             "Guardian",
-            1F,
-            0.2F,
+            "Enemy",
+            0.3F,
+            0.1F,
             new List<Item>()
         );
 
         public static Enemy ganon = new Enemy
         (
                     "The Calamity Ganon",
+                    "Enemy",
                     1F,
                     0.2F,
                     new List<Item>()
         );
 
-        public static Friend Zora = new Friend
+        public static Friend zora = new Friend
         (
-            "Prince Sidon"
+            "Prince Sidon",
+            "Friend"
         );
 
 
 
         public class Avatar : Character
         {
-            public Avatar(string Name, float Lifepoints, float Hitpoints, List<Item> Inventory)
+            public Avatar(string _name, string _type, float Lifepoints, float Hitpoints, List<Item> Inventory)
             {
 
-                this.name = Name;
+                this.name = _name;
+                this.type = _type;
                 this.lifepoints = Lifepoints;
                 this.hitpoints = Hitpoints;
                 this.inventory = Inventory;
@@ -61,10 +67,11 @@ namespace Abgabe
         }
         public class Enemy : Character
         {
-            public Enemy(string Name, float Lifepoints, float Hitpoints, List<Item> Inventory)
+            public Enemy(string _name, string _type, float Lifepoints, float Hitpoints, List<Item> Inventory)
             {
 
-                this.name = Name;
+                this.name = _name;
+                this.type = _type;
                 this.lifepoints = Lifepoints;
                 this.hitpoints = Hitpoints;
                 this.inventory = Inventory;
@@ -75,16 +82,13 @@ namespace Abgabe
 
         public class Friend : Character
         {
-            public Friend(string Name)
+            public Friend(string _name, string _type)
             {
-                this.name = Name;
+                this.name = _name;
+                this.type = _type;
 
             }
-            public static void tell()
-            {
-                Console.WriteLine("Hello i'm Prince Sidon, prince of the Zora Village. " + Environment.NewLine + "I'm so excited to meet you, but let my words be a warning. " + Environment.NewLine + "In the room in the north you'll find a cruel monster. " + Environment.NewLine + "Have you armed your sword yet? ");
-                HelpMethods.tellCases();
-            }
+           
 
 
         }     

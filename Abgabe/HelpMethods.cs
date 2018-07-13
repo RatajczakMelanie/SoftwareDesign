@@ -8,6 +8,7 @@ namespace Abgabe
 
         public static string [] words;
         public static Room currentRoom = Room.createData();
+        public static Room currentEnemyRoom = EnemyCurrentRoom.SheikahShrine;
         public static bool isFightCase = true;
         public static List<string> commands = new List<string>
         {
@@ -18,7 +19,7 @@ namespace Abgabe
         };
     
 
-        public static void tellCases()
+        public static void TellCases()
         {
             string input = Console.ReadLine().ToLower();
             
@@ -36,7 +37,7 @@ namespace Abgabe
 
                 default:
                     Console.WriteLine("I did not understand what you said. Please answer with [yes/y] or [no/n].");
-                    tellCases();
+                    TellCases();
                     break;
             }
             
@@ -44,10 +45,10 @@ namespace Abgabe
         public static void displayInventory()
         {
             
-            Console.WriteLine("Name - Type - Armed - Lifepoints - Hitpoints - Information ");
+            Console.WriteLine("Inventory:" + Environment.NewLine + "Name - Type - Armed - Lifepoints - Hitpoints - Information ");
             foreach(var item in CharacterSetup.link.inventory)
             {
-                Console.WriteLine( "Inventar:"+Environment.NewLine +item.name + "      " +  item.type + "    " + item.armed + "    " + item.lifepoints + "    " + item.hitpoints + "    " + item.information );
+                Console.WriteLine( item.name + "      " +  item.type + "    " + item.armed + "    " + item.lifepoints + "    " + item.hitpoints + "    " + item.information );
             } 
             
          } 
@@ -125,6 +126,35 @@ namespace Abgabe
                         Console.WriteLine(item.name);
                     } */
         } 
+        public static void Chat(){
+            Console.WriteLine("Hello adventurer... wait... Link is that you? You must no that ahead lies the Castle of Hyrule. The Calamity Ganon has poisened this ground. Before you go any further, have you armed a sword?");
+            TellCases();
+        }
+
+        public static void Fight(){
+            
+                foreach(var enemy in currentRoom.characters)
+                {
+                    if (enemy.type == "Enemy")
+                    {
+                        enemy.lifepoints = enemy.lifepoints - CharacterSetup.link.hitpoints;
+                        Console.WriteLine("You cost " + enemy.name + " " + CharacterSetup.link.hitpoints + " Hitpoints. The beast fights back! ");
+                        CharacterSetup.link.lifepoints = CharacterSetup.link.lifepoints - enemy.hitpoints;
+                        Console.WriteLine("Your lifepoints: " + CharacterSetup.link.lifepoints  + " / Your enemy's lifepoints: " + enemy.lifepoints );
+                        Console.WriteLine("Attack again!");
+                        
+                    }
+                    if (enemy.lifepoints <= 0){
+                        Console.WriteLine("Nice, you've slain the beast!");
+                    }
+                    if (CharacterSetup.link.lifepoints <=  0){
+                        Console.WriteLine("You're dead. Try again.");
+                        Quit();
+                    }
+                }
+            
+        }
+        
           public static Array SplitInput()
         {
             Room.RoomDescription(currentRoom);
@@ -136,12 +166,56 @@ namespace Abgabe
         public static void EnemyRoomChange(){
             int number = 0;
             
-            switch(number){
+            switch(number)
+            {
 
                 case 0:
-                
-                //ICH KANN NICHT AUF DIE RÄUME ZUGREIFEN
-                //Room.SheikahShrine.characters.Add(CharacterSetup.guardian);
+                if(EnemyCurrentRoom.SheikahShrine.north != null)
+                {
+                    EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
+                    currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.north;
+                    currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                }else{
+                    number ++;
+                }
+                break;
+
+                case 1:
+                if(EnemyCurrentRoom.SheikahShrine.south != null)
+                {
+                    EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
+                    currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.south;
+                    currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                }else{
+                    number ++;
+                }
+                break;
+
+                case 2:
+                if(EnemyCurrentRoom.SheikahShrine.east != null)
+                {
+                    EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
+                    currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.east;
+                    currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                }else{
+                    number ++;
+                }
+                break;
+
+                case 3:
+                if(EnemyCurrentRoom.SheikahShrine.west != null)
+                {
+                    EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
+                    currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.west;
+                    currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                }else{
+                    number ++;
+                }
+                break;
+
+                default:
+                number = 0;
+                Console.WriteLine("Error in EnemyRoomChange(). Check if your room has any neighbours.");
                 break;
             }
             
@@ -292,7 +366,7 @@ namespace Abgabe
 
                     case "f":
                     case "fight":
-                    //Fight();
+                    Fight();
                     break;
 
                     case "d":
@@ -308,6 +382,11 @@ namespace Abgabe
                     case "t":
                     case "take":
                     Take(words[1], currentRoom);
+                    break;
+
+                    case "c":
+                    case "chat":
+                    Chat();
                     break;
 
                     default:
