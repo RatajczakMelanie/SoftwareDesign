@@ -139,15 +139,24 @@ namespace Abgabe
                     } */
         } 
         public static void Chat(){
-            Console.WriteLine("Hello adventurer... wait... Link is that you? You must no that ahead lies the Castle of Hyrule. The Calamity Ganon has poisened this ground. Before you go any further, have you armed a sword?");
+            if(currentRoom.characters.Contains(CharacterSetup.zora))
+            {
+                Console.WriteLine("Hello adventurer... wait... Link is that you? You must no that ahead lies the Castle of Hyrule. The Calamity Ganon has poisened this ground. Before you go any further, have you armed a sword?");
             TellCases();
+            }
+            else
+            {
+                Console.WriteLine("There is no on to chat to. I'm sorry.");
+            }
+            
         }
 
         public static void Fight(){
             List<CharacterSetup.Character> characters_Copy = new List<CharacterSetup.Character>(); 
             List<Item> inventory_Copy = new List<Item>(); 
-            
-                foreach(var enemy in currentRoom.characters)
+            if(!currentRoom.characters.Contains(CharacterSetup.zora)){
+
+              foreach(var enemy in currentRoom.characters)
                 {
                     if (enemy.type == "Enemy")
                     {
@@ -165,6 +174,7 @@ namespace Abgabe
                         }
                         
                     }
+                    
                     
                     if (enemy.lifepoints <= 0){
                         if(enemy.name == "the calamity ganon")
@@ -206,7 +216,12 @@ namespace Abgabe
                     currentRoom.characters.Remove(enemy);
                     EnemyCurrentRoom.SheikahShrine.characters.Remove(enemy);
                 }
-            
+            }
+            else
+            {
+                Console.WriteLine("There is no one you can fight, stop trying!");
+                    
+            }
         }
         
         public static void Look(){

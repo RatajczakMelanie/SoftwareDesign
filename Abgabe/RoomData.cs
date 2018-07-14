@@ -93,7 +93,7 @@ namespace Abgabe
         Room ZoraDomain = new Room
         (
             "The Zora village",
-            "You've entered the Zora village. People here like to swim, water is their element. You're waddeling into Water."
+            "You've entered the Zora village. People here like to swim, water is their element. You're waddling into Water."
             
             
         );
