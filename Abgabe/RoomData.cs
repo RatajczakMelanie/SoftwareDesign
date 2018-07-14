@@ -8,7 +8,7 @@ namespace Abgabe
             public static Room SheikahShrine = new Room
             (
                 "The SheikahShrine",
-                "You've entered The Sheikahshrine. You can sense that there might be some special item here."
+                "You've entered The Sheikahshrine. A stream of power flows through you."
                 + Environment.NewLine 
                 + "What would you like to do?"
                 
@@ -151,6 +151,7 @@ namespace Abgabe
         //Field neighbours
         Field.north = Kakariko;
         Field.roomInventory.Add(sword);
+        
         //Field.roomInventory.Add(potion);
         Field.characters.Add(CharacterSetup.link);
         //Field.characters.Add(CharacterSetup.ganon);
@@ -162,7 +163,7 @@ namespace Abgabe
         Kakariko.west = EnemyCurrentRoom.SheikahShrine;
          //SheikahShrine neighbours
         EnemyCurrentRoom.SheikahShrine.east = Kakariko;
-        EnemyCurrentRoom.SheikahShrine.south = Field;
+        //EnemyCurrentRoom.SheikahShrine.south = Field;
         //EnemyCurrentRoom.SheikahShrine.roomInventory.Add(sheikahStone);
         EnemyCurrentRoom.SheikahShrine.characters.Add(CharacterSetup.guardian);
        EnemyCurrentRoom.SheikahShrine.roomInventory.Add(potion);
@@ -178,8 +179,9 @@ namespace Abgabe
 
         //HyruleCastle neighbours
         HyruleCastle.south = ZoraDomain;
-        HyruleCastle.roomInventory.Add(statueOfZelda);
+        //HyruleCastle.roomInventory.Add(statueOfZelda);
         HyruleCastle.characters.Add(CharacterSetup.ganon);
+        CharacterSetup.ganon.inventory.Add(statueOfZelda);
         
         //List<Room>
         rooms.Add(Field);

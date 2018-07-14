@@ -43,6 +43,7 @@ namespace Abgabe
                     0.2F,
                     new List<Item>()
         );
+        
 
         public static Friend zora = new Friend
         (

@@ -158,6 +158,7 @@ namespace Abgabe
 
         public static void Fight(){
             List<CharacterSetup.Character> characters_Copy = new List<CharacterSetup.Character>(); 
+            List<Item> inventory_Copy = new List<Item>(); 
             
                 foreach(var enemy in currentRoom.characters)
                 {
@@ -179,8 +180,22 @@ namespace Abgabe
                     }
                     
                     if (enemy.lifepoints <= 0){
-                        if(enemy.name == "the calamity ganon"){
+                        if(enemy.name == "the calamity ganon")
+                        {
+                            
                             Console.WriteLine("Nice, you've slain the beast!");
+                            foreach(var item in CharacterSetup.ganon.inventory)
+                            {   
+                                if (item.name == "zeldafigure")
+                                {
+                                    inventory_Copy.Add(item);
+                                    Console.WriteLine("It dropped something.");
+                                }
+                            }
+                            foreach(var item in inventory_Copy){
+                                currentRoom.roomInventory.Add(item);
+                                CharacterSetup.ganon.inventory.Remove(item);
+                            }
                             characters_Copy.Add(enemy);
                             foreach (var item in CharacterSetup.link.inventory){
                                 if(item.name == "zeldafigure"){
