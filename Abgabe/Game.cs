@@ -13,7 +13,9 @@ namespace Abgabe
 
         public static void GameWin(){
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("You killed the Calamity Ganon and took the handmade Figure of the Princess Zelda."
+            Console.WriteLine("You killed the Calamity Ganon and took the handmade figure of the Princess Zelda."
+            + Environment.NewLine
+            +"You saved the people of Hyrule and everyone loves you."
             + Environment.NewLine
             +"There's nothing left for you to do."
             + Environment.NewLine
@@ -27,7 +29,7 @@ namespace Abgabe
         {
             string gameDescription = 
             Environment.NewLine +
-            "Hello adventurerer, Welcome to a game full of mysteries and danger. You're name is Link right?" 
+            "Hello adventurer, welcome to a game full of mysteries and danger. You're name is Link right?" 
             + Environment.NewLine 
             + "Open all possible commands by pressing [help/h]."
             + Environment.NewLine 

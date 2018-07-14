@@ -198,7 +198,7 @@ namespace Abgabe
                         }
                     }
                     if (CharacterSetup.link.lifepoints <=  0){
-                        Console.WriteLine("You're dead. Try again.");
+                        Console.WriteLine("You died. A fairy brought you back to life, so try again.");
                         Quit();
                     }
                 }
@@ -252,7 +252,7 @@ namespace Abgabe
                             }
                             else
                             {
-                                Console.WriteLine("You can only arm items with type 'gear'");
+                                Console.WriteLine("You can only arm items from type 'gear'");
                                 
                             }
                         }else{
@@ -261,7 +261,7 @@ namespace Abgabe
                     }
                     else
                     {
-                        Console.WriteLine("There is no item inventory with that name, to see what's in your inventory press [inventory/i].");
+                        Console.WriteLine("There is no item in your inventory with that name, to see what's in your inventory press [inventory/i].");
                     }
                 } 
                 
@@ -301,11 +301,11 @@ namespace Abgabe
                         }
                         else
                         {
-                             Console.WriteLine("You can only use items with type 'health'");
+                             Console.WriteLine("You can only use items from type 'health'");
                         }
                     }else
                     {
-                       Console.WriteLine("There is no item inventory with that name, to see what's in your inventory press [inventory/i].");
+                       Console.WriteLine("There is no item in your inventory with that name, to see what's in your inventory press [inventory/i].");
                     }    
                 }     
                         foreach(var item in inventory_Copy){
