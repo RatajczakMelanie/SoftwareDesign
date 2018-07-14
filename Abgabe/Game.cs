@@ -7,7 +7,7 @@ namespace Abgabe
     {
         public static void GameStart()
         {   
-            HelpMethods.GameDescription();
+            GameDescription();
             HelpMethods.CheckCases();
         }
 
@@ -21,6 +21,20 @@ namespace Abgabe
             + Environment.NewLine
             + "Thank you for Playing The Legend of Zelda - Text Adventure!");
             Console.ResetColor();
+        }
+
+            public static void GameDescription()
+        {
+            string gameDescription = 
+            Environment.NewLine +
+            "Hello adventurerer, Welcome to a game full of mysteries and danger. You're name is Link right?" 
+            + Environment.NewLine 
+            + "Open all possible commands by pressing [help/h]."
+            + Environment.NewLine 
+            + "To end your adventure and go back to your boring life press [q]. "
+            + Environment.NewLine 
+            + "Your aventure is starting right this second...";
+            Console.WriteLine(gameDescription);
         }
     }
 }

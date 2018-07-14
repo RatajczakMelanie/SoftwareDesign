@@ -9,7 +9,6 @@ namespace Abgabe
         public static string [] words;
         public static Room currentRoom = Room.createData();
         public static Room currentEnemyRoom = EnemyCurrentRoom.SheikahShrine;
-        public static bool isFightCase = true;
         public static List<string> commands = new List<string>
         {
             "[north/n] [east/e] [south/s] [west/w]",
@@ -57,19 +56,7 @@ namespace Abgabe
             } 
             
          } 
-        public static void GameDescription()
-        {
-            string gameDescription = 
-            Environment.NewLine +
-            "Hello adventurerer, Welcome to a game full of mysteries and danger. You're name is Link right?" 
-            + Environment.NewLine 
-            + "Open all possible commands by pressing [help/h]."
-            + Environment.NewLine 
-            + "To end your adventure and go back to your boring life press [q]. "
-            + Environment.NewLine 
-            + "Your aventure is starting right this second...";
-            Console.WriteLine(gameDescription);
-        }
+    
         public static void Quit()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
