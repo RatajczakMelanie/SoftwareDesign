@@ -224,6 +224,15 @@ namespace Abgabe
         
         public static void Look(){
             Room.RoomDescription(currentRoom);
+            if(currentRoom.characters.Count > 1){
+                foreach(var character in currentRoom.characters)
+                {
+                    if(character.name != "link"){
+                        Console.WriteLine(character.information);
+                    }
+                
+                }
+            }
         }
 
         public static void Arm(string itemname)

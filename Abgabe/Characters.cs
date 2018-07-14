@@ -22,7 +22,7 @@ namespace Abgabe
             "Link",
             "Avatar",
             1F,
-            0.3F,
+            0.2F,
             new List<Item>()
         );
 
@@ -30,8 +30,9 @@ namespace Abgabe
         (
             "Guardian",
             "Enemy",
-            0.3F,
-            0.1F,
+            "I'm the guardian of the Sheikashrine. I will protect my legacy.",
+            0.5F,
+            0.15F,
             new List<Item>()
         );
 
@@ -39,7 +40,8 @@ namespace Abgabe
         (
                     "the calamity ganon",
                     "Enemy",
-                    1F,
+                    "I'm the mighty Calamity Ganon! Defeat me if you can!",
+                    0.9F,
                     0.2F,
                     new List<Item>()
         );
@@ -48,7 +50,8 @@ namespace Abgabe
         public static Friend zora = new Friend
         (
             "Prince Sidon",
-            "Friend"
+            "Friend",
+            "Hey I'm Prince Sidon. You might remember my sister?"
         );
 
 
@@ -68,11 +71,12 @@ namespace Abgabe
         }
         public class Enemy : Character
         {
-            public Enemy(string _name, string _type, float Lifepoints, float Hitpoints, List<Item> Inventory)
+            public Enemy(string _name, string _type, string _information, float Lifepoints, float Hitpoints, List<Item> Inventory)
             {
 
                 this.name = _name;
                 this.type = _type;
+                this.information = _information;
                 this.lifepoints = Lifepoints;
                 this.hitpoints = Hitpoints;
                 this.inventory = Inventory;
@@ -83,10 +87,11 @@ namespace Abgabe
 
         public class Friend : Character
         {
-            public Friend(string _name, string _type)
+            public Friend(string _name, string _type, string _information)
             {
                 this.name = _name;
                 this.type = _type;
+                this.information = _information;
 
             }
            
