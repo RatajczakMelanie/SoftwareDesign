@@ -21,7 +21,7 @@ namespace Abgabe
             + Environment.NewLine
             + "So either end your adventure by entering [quit/q] or explore the rest of this world."
             + Environment.NewLine
-            + "Thank you for Playing The Legend of Zelda - Text Adventure!");
+            + "Thank you for playing The Legend of Zelda - Text Adventure!");
             Console.ResetColor();
         }
 

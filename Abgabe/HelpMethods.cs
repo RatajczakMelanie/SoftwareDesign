@@ -21,29 +21,32 @@ namespace Abgabe
         public static void TellCases()
         {
             string input = Console.ReadLine().ToLower();
-            
-            switch (input)
+            if(CharacterSetup.ganon.lifepoints > 0)
             {
-                case "yes":
-                case "y":
-                    Console.WriteLine("Oh that is great. Than i have no doubt you will defeat this beast! Farewell my Friend!");
-                    break;
+                switch (input)
+                {
+                    case "yes":
+                    case "y":
+                        Console.WriteLine("Oh that is great. Than i have no doubt you will defeat this beast! Farewell my Friend!");
+                        break;
 
-                case "no":
-                case "n":
-                    Console.WriteLine("That is not good. Go back to the field your journey started and look for a sword of your kind!");
-                    break;
-                
-                case "q":
-                    case "quit":
-                    Quit();
-                    break;
+                    case "no":
+                    case "n":
+                        Console.WriteLine("That is not good. Go back to the field your journey started and look for a sword of your kind!");
+                        break;
+                    
+                    case "q":
+                        case "quit":
+                        Quit();
+                        break;
 
-                default:
-                    Console.WriteLine("I did not understand what you said. Please answer with [yes/y] or [no/n].");
-                    TellCases();
-                    break;
+                    default:
+                        Console.WriteLine("I did not understand what you said. Please answer with [yes/y] or [no/n].");
+                        TellCases();
+                        break;
+                }
             }
+           
             
         }
         public static void DisplayInventory()
@@ -100,6 +103,9 @@ namespace Abgabe
                         roomInventory_Copy.Add(item);
                         CharacterSetup.link.inventory.Add(item);
                    }
+                }else
+                {
+                    Console.WriteLine("There is no such item in your inventory.");
                 }
             } 
             foreach(var item in roomInventory_Copy){
@@ -151,9 +157,19 @@ namespace Abgabe
         } 
         public static void Chat(){
             if(currentRoom.characters.Contains(CharacterSetup.zora))
-            {
-                Console.WriteLine("Hello adventurer... wait... Link is that you? You must know that ahead lies the Castle of Hyrule. The Calamity Ganon has poisened this ground. Before you go any further, have you armed a sword?");
-            TellCases();
+            {   
+                if(CharacterSetup.ganon.lifepoints>0)
+                {
+                    Console.WriteLine("Hello adventurer... wait... Link is that you? You must know that ahead lies the Castle of Hyrule. The Calamity Ganon has poisened this ground. Before you go any further, have you armed a sword?");
+                    TellCases();
+                }else
+                {
+                    Console.WriteLine("You're back?");
+                     Console.WriteLine("You did it! Link you're my hero. You're everbody's hero!! Man... they should make Link action figures or something...");
+            
+                }
+                
+            
             }
             else
             {
