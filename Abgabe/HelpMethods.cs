@@ -123,6 +123,17 @@ namespace Abgabe
                     //CharacterSetup.link.inventory.Add(item);
                     inventory_Copy.Add(item);
                     room.roomInventory.Add(item);
+                    if(item.type == "gear"){
+                        if(item.armed == true){
+                            
+                            float hitpointsItem = item.hitpoints;
+                            float downGradedHitpoints = CharacterSetup.link.hitpoints - hitpointsItem;
+                            Console.WriteLine("Your hitpoints were downgraded from " + CharacterSetup.link.hitpoints + " to " + downGradedHitpoints);
+                            CharacterSetup.link.hitpoints = downGradedHitpoints;
+                            item.armed = false;
+                        }
+                        
+                    }
                    
                 }
                 else
