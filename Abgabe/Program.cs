@@ -8,7 +8,6 @@ namespace Abgabe
         static void Main(string[] args)
         {
             Game.GameStart();
-            //HelpMethods.EnemyRoomChange();
         }
     }
 }

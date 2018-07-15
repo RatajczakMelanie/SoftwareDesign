@@ -193,7 +193,7 @@ namespace Abgabe
         return Field;
         
     } 
-        //public List<CharacterSetup.Character> characters;
+        
             
 }        
       

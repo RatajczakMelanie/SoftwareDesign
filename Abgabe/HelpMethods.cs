@@ -46,7 +46,7 @@ namespace Abgabe
             }
             
         }
-        public static void displayInventory()
+        public static void DisplayInventory()
         {
             
             Console.WriteLine("Inventory:" + Environment.NewLine + "Name - Type - Armed - Lifepoints - Hitpoints - Information ");
@@ -567,7 +567,7 @@ namespace Abgabe
 
                     case "i":
                     case "inventory":
-                    displayInventory();
+                    DisplayInventory();
                     break;
 
                     case "f":
