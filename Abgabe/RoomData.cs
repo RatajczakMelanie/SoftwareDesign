@@ -73,7 +73,7 @@ namespace Abgabe
         Room Field = new Room
         (
             "A Field",
-            "You are Standing on a wide Field. In the North you see little houses and huge mountains."
+            "You are standing on a wide field. In the north you see little houses and huge mountains."
             + Environment.NewLine 
             + "What would you like to do?"
             
@@ -93,7 +93,7 @@ namespace Abgabe
         Room ZoraDomain = new Room
         (
             "The Zora village",
-            "You've entered the Zora village. People here like to swim, water is their element. You're waddling into Water."
+            "You've entered the Zora village. People here like to swim, water is their element. You're waddling into water."
             
             
         );
@@ -129,7 +129,7 @@ namespace Abgabe
             "HP +0.2"
         );
 
-        Item sheikahStone = new Item(
+        /* Item sheikahStone = new Item(
             
             "sheikastone",
             "normal",
@@ -137,7 +137,7 @@ namespace Abgabe
             0,
             0,
             "The Sheikastone reveals a secret passageway"
-        );
+        ); */
         Item statueOfZelda = new Item(
             
             "zeldafigure",

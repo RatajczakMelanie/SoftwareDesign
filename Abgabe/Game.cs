@@ -26,17 +26,19 @@ namespace Abgabe
         }
 
             public static void GameDescription()
-        {
+        {   
             string gameDescription = 
             Environment.NewLine +
             "Hello adventurer, welcome to a game full of mysteries and danger. You're name is Link right?" 
             + Environment.NewLine 
             + "Open all possible commands by pressing [help/h]."
             + Environment.NewLine 
-            + "To end your adventure and go back to your boring life press [q]. "
+            + "To end your adventure and go back to your boring life press [quit/q]. "
             + Environment.NewLine 
             + "Your aventure is starting right this second...";
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(gameDescription);
+            Console.ResetColor();
         }
     }
 }

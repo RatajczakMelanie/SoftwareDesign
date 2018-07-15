@@ -141,7 +141,7 @@ namespace Abgabe
         public static void Chat(){
             if(currentRoom.characters.Contains(CharacterSetup.zora))
             {
-                Console.WriteLine("Hello adventurer... wait... Link is that you? You must no that ahead lies the Castle of Hyrule. The Calamity Ganon has poisened this ground. Before you go any further, have you armed a sword?");
+                Console.WriteLine("Hello adventurer... wait... Link is that you? You must know that ahead lies the Castle of Hyrule. The Calamity Ganon has poisened this ground. Before you go any further, have you armed a sword?");
             TellCases();
             }
             else
@@ -213,8 +213,9 @@ namespace Abgabe
                     }
                 }
                 foreach(var enemy in characters_Copy){
-                    currentRoom.characters.Remove(enemy);
                     EnemyCurrentRoom.SheikahShrine.characters.Remove(enemy);
+                    currentRoom.characters.Remove(enemy);
+                    
                 }
             }
             else
@@ -350,73 +351,74 @@ namespace Abgabe
 
             
             int number = randomNumber.Next(0,3);
-            
-            switch(number)
-            {
-                case 0:
-                if(EnemyCurrentRoom.SheikahShrine.east != null)
-                {   
-                    if(currentRoom.characters.Count <= 1)
-                    {
-                        EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
-                        currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.east;
-                        currentEnemyRoom.characters.Add(CharacterSetup.guardian);
-                    }
-                }else{
-                    number ++;
-                }
-                break;
+            if(CharacterSetup.zora.lifepoints > 0){
 
-                case 2:
-                if(EnemyCurrentRoom.SheikahShrine.north != null)
+                switch(number)
                 {
-                    if(currentRoom.characters.Count <= 1)
-                    {
-                        EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
-                        currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.north;
-                        currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                    case 0:
+                    if(EnemyCurrentRoom.SheikahShrine.east != null)
+                    {   
+                        if(currentRoom.characters.Count <= 1)
+                        {
+                            EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
+                            currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.east;
+                            currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                        }
+                    }else{
+                        number ++;
                     }
-                }else{
-                    number ++;
-                }
-                break;
+                    break;
 
-                case 1:
-                if(EnemyCurrentRoom.SheikahShrine.south != null)
-                {
-                    if(currentRoom.characters.Count <= 1)
+                    case 2:
+                    if(EnemyCurrentRoom.SheikahShrine.north != null)
                     {
-                        EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
-                        currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.south;
-                        currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                        if(currentRoom.characters.Count <= 1)
+                        {
+                            EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
+                            currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.north;
+                            currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                        }
+                    }else{
+                        number ++;
                     }
-                }else{
-                    number ++;
-                }
-                break;
+                    break;
 
-                
-
-                case 3:
-                if(EnemyCurrentRoom.SheikahShrine.west != null)
-                {
-                    if(currentRoom.characters.Count <= 1)
+                    case 1:
+                    if(EnemyCurrentRoom.SheikahShrine.south != null)
                     {
-                        EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
-                        currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.west;
-                        currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                        if(currentRoom.characters.Count <= 1)
+                        {
+                            EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
+                            currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.south;
+                            currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                        }
+                    }else{
+                        number ++;
                     }
-                }else{
-                    number ++;
-                }
-                break;
+                    break;
 
-                default:
-                number = 0;
-                Console.WriteLine("Error in EnemyRoomChange(). Check if your room has any neighbours.");
-                break;
+                    
+
+                    case 3:
+                    if(EnemyCurrentRoom.SheikahShrine.west != null)
+                    {
+                        if(currentRoom.characters.Count <= 1)
+                        {
+                            EnemyCurrentRoom.SheikahShrine.characters.Remove(CharacterSetup.guardian);
+                            currentEnemyRoom = EnemyCurrentRoom.SheikahShrine.west;
+                            currentEnemyRoom.characters.Add(CharacterSetup.guardian);
+                        }
+                    }else{
+                        number ++;
+                    }
+                    break;
+
+                    default:
+                    number = 0;
+                    Console.WriteLine("Error in EnemyRoomChange(). Check if your room has any neighbours.");
+                    break;
+                }
             }
-            
         }
 
         public static Room RoomChange(string direction){
