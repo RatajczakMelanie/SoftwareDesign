@@ -378,7 +378,7 @@ namespace Abgabe
 
             
             int number = randomNumber.Next(0,3);
-            if(CharacterSetup.zora.lifepoints > 0){
+            if(CharacterSetup.guardian.lifepoints > 0){
 
                 switch(number)
                 {
