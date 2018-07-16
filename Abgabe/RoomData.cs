@@ -26,7 +26,6 @@ namespace Abgabe
         
         public string name;
         public string information;
-        public int roomNumber;
         public Room north;
         public Room east;
         public Room south;
