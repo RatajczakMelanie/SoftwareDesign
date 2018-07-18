@@ -147,38 +147,28 @@ namespace Abgabe
             "A beautiful handmade figure of the Princess Zelda"
         );
 
-        //Field neighbours
+        //Field
         Field.north = Kakariko;
         Field.roomInventory.Add(sword);
-        
-        //Field.roomInventory.Add(potion);
         Field.characters.Add(CharacterSetup.link);
-        //Field.characters.Add(CharacterSetup.ganon);
         
-
-        //Kakariko neighbours
+        //Kakariko
         Kakariko.east = ZoraDomain;
         Kakariko.south= Field;
         Kakariko.west = EnemyCurrentRoom.SheikahShrine;
-         //SheikahShrine neighbours
-        EnemyCurrentRoom.SheikahShrine.east = Kakariko;
-        //EnemyCurrentRoom.SheikahShrine.south = Field;
-        //EnemyCurrentRoom.SheikahShrine.roomInventory.Add(sheikahStone);
-        EnemyCurrentRoom.SheikahShrine.characters.Add(CharacterSetup.guardian);
-       EnemyCurrentRoom.SheikahShrine.roomInventory.Add(potion);
-        
 
-        //ZoraDomain neighbours
+         //SheikahShrine
+        EnemyCurrentRoom.SheikahShrine.east = Kakariko;
+        EnemyCurrentRoom.SheikahShrine.characters.Add(CharacterSetup.guardian);
+        EnemyCurrentRoom.SheikahShrine.roomInventory.Add(potion);
+        
+        //ZoraDomain
         ZoraDomain.north = HyruleCastle;
         ZoraDomain.west = Kakariko;
         ZoraDomain.characters.Add(CharacterSetup.zora);
         
-
-        
-
-        //HyruleCastle neighbours
+        //HyruleCastle
         HyruleCastle.south = ZoraDomain;
-        //HyruleCastle.roomInventory.Add(statueOfZelda);
         HyruleCastle.characters.Add(CharacterSetup.ganon);
         CharacterSetup.ganon.inventory.Add(statueOfZelda);
         
