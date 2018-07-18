@@ -372,7 +372,7 @@ namespace Abgabe
                    }
                 }else
                 {
-                    Console.WriteLine("There is no such item in your inventory.");
+                    Console.WriteLine("There is no such item.");
                 }
             } 
             foreach(var item in roomInventory_Copy){

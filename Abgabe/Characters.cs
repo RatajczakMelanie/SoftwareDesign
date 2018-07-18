@@ -42,7 +42,7 @@ namespace Abgabe
                     "Enemy",
                     "I'm the mighty Calamity Ganon! Defeat me if you can!",
                     0.9F,
-                    0.2F,
+                    0.23F,
                     new List<Item>()
         );
         
